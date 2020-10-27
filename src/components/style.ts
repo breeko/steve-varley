@@ -1,8 +1,6 @@
-import { Card, Layout, Typography, Space } from "antd"
+import { Card, Layout, Space } from "antd"
 import styled from "styled-components"
 import Colors from "../utils/colors"
-
-const { Title } = Typography
 
 const { Header, Content, Footer } = Layout
 

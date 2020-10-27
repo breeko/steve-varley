@@ -1,7 +1,7 @@
 import { Col, Space } from "antd"
 import Link from "next/link"
 import React, { useEffect, useState } from "react"
-import { LatestVideosRow, MainTagLine } from "../../../pages/style"
+import { LatestVideosRow, MainTagLine } from "../../style"
 import { Interview, Review } from "../../types/graphql"
 import { loadLatestVideos } from "../../utils/apiUtils"
 

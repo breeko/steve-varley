@@ -1,8 +1,6 @@
-import { Image, Row, Typography } from "antd"
+import { Image, Row } from "antd"
 import styled from "styled-components"
-import Colors from "../src/utils/colors"
-
-const { Title } = Typography
+import Colors from "./utils/colors"
 
 export const SplashContainer = styled.div<{size: "large" | "medium"}>`
   width: ${(p) => p.size === "large" ? "50%" : "35%"};

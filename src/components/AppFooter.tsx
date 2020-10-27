@@ -1,11 +1,9 @@
-import React from "react"
-import { StyledFooter } from "./style"
-import { Button, Space, Typography } from "antd"
+import { Space } from "antd"
 import Link from "next/link"
+import React from "react"
 import { FiGithub, FiMail } from "react-icons/fi"
 import Colors from "../utils/colors"
-
-const { Text } = Typography
+import { StyledFooter } from "./style"
 
 const AppFooter = () => {
   return(
@@ -16,7 +14,7 @@ const AppFooter = () => {
             <FiGithub color={Colors.white} size="20px"/>
           </a>
         </Link>
-        <Link href="mailto:branko.blagojevic@gmail.com">
+        <Link href="mailto:stevevarleyshow@gmail.com">
           <a>
             <FiMail color={Colors.white} size="20px"/>
           </a>

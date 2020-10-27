@@ -3,7 +3,8 @@ import Layout from '../src/components/AppLayout'
 import { Typography } from 'antd'
 import React from "react"
 import YouTube from 'react-youtube'
-import { SplashContainer } from './style'
+import { SplashContainer } from '../src/style'
+
 const { Title } = Typography
 
 const AboutPage: React.FunctionComponent = () => {
@@ -14,8 +15,8 @@ const AboutPage: React.FunctionComponent = () => {
   };
 
   return (
-    <Layout title="Steve Varley Reviews">
-      <SplashContainer>
+    <Layout>
+      <SplashContainer size="medium">
         <Title level={1}>About Steve Varley</Title>
         <YouTube
           videoId={FAQ_ID}                  // defaults -> null

@@ -2,8 +2,7 @@ import { Button, Space } from "antd";
 import { ColumnsType } from "antd/lib/table";
 import React from "react";
 import { FiEdit } from "react-icons/fi";
-import { TvSeriesItem } from "../../src/scrap/data/tvSeries";
-import { TvVideoFull } from "../../src/types/graphql";
+import { TvVideoFull } from "../../types/graphql";
 
 
 export const buildReviewColumns = (onEdit: (id: string) => void) => {
@@ -11,7 +10,7 @@ export const buildReviewColumns = (onEdit: (id: string) => void) => {
     {
       title: "Action",
       key: "action",
-      render: (a, item) => <Space direction="horizontal">
+      render: (_a, item) => <Space direction="horizontal">
         <Button icon={<FiEdit onClick={() => onEdit(item.id)}/>}/>
       </Space>
     },
@@ -31,7 +30,7 @@ export const buildReviewColumns = (onEdit: (id: string) => void) => {
       title: "Series",
       dataIndex: "series",
       key: "series",
-      render: (v, r) => r.series?.name,
+      render: (_v, r) => r.series?.name,
       sorter: (a, b) => a?.series?.name.localeCompare(b.series?.name || "") || 0,
       onFilter: (value, record) => record.series?.name === value,
     },
@@ -69,7 +68,7 @@ export const buildInterviewColumns = (onEdit: (id: string) => void) => {
   const columns: ColumnsType<TvVideoFull> = [
     {
       title: "Action",
-      render: (a, item) => <Space direction="horizontal">
+      render: (_a, item) => <Space direction="horizontal">
         <Button icon={<FiEdit onClick={() => onEdit(item.id)}/>}/>
       </Space>
     },
@@ -89,7 +88,7 @@ export const buildInterviewColumns = (onEdit: (id: string) => void) => {
       title: "Series",
       dataIndex: "series",
       key: "series",
-      render: (v, r) => r.series?.name,
+      render: (_v, r) => r.series?.name,
       sorter: (a, b) => a.series?.name.localeCompare(b.series?.name || "") || 0,
       onFilter: (value, record) => record.series?.name === value,
     },
@@ -108,11 +107,11 @@ export const buildInterviewColumns = (onEdit: (id: string) => void) => {
 }
 
 export const buildMediaColumns = (onEdit: (id: string) => void) => {
-  const tvSeriesColumns: ColumnsType<TvSeriesItem> = [
+  const tvSeriesColumns: ColumnsType<{id: string, name: string}> = [
     {
       title: "Action",
       key: "action",
-      render: (a, item) => <Space direction="horizontal">
+      render: (_a, item) => <Space direction="horizontal">
         <Button icon={<FiEdit onClick={() => onEdit(item.id)}/>}/>
       </Space>
     },

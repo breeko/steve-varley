@@ -86,20 +86,22 @@ export const listMovieInterviewsFull = async (): Promise<TvVideoFull[]> => {
 export const loadTvMedia = async (id: string | string[]): Promise<MediaResponse> => {
   const res = await API.graphql(graphqlOperation(custom.getTvSeriesFull, { id } )) as TvReviewsResponse
   const reviews = res.data.getTvSeries?.reviews?.items?.filter(isDefined) || []
+  // @ts-ignore
   const sortedReviews = reviews.sort(sortEpisode).map(s => ({...s, key: s.path}))
   const interviews = res.data.getTvSeries?.interviews?.items?.filter(isDefined) || []
   const sortedInterviews = interviews.sort((a, b) => a.published.localeCompare(b.published)).map(s => ({...s, key: s.path}))
-
+// @ts-ignore
   return {...res.data.getTvSeries, interviews: sortedInterviews, reviews: sortedReviews}
 }
 
 export const loadMovieMedia = async (id: string | string[]): Promise<MediaResponse> => {
   const res = await API.graphql(graphqlOperation(custom.getMoviesFull, { id } )) as MovieResponse
   const reviews = res.data.getMovie?.reviews?.items?.filter(isDefined) || []
+  // @ts-ignore
   const sortedReviews = reviews.sort(sortEpisode).map(s => ({...s, key: s.path}))
   const interviews = res.data.getMovie?.interviews?.items?.filter(isDefined) || []
   const sortedInterviews = interviews.sort((a, b) => a.published.localeCompare(b.published)).map(s => ({...s, key: s.path}))
-
+// @ts-ignore
   return {...res.data.getMovie, interviews: sortedInterviews, reviews: sortedReviews}
 }
 

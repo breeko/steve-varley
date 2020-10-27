@@ -6,7 +6,7 @@ import AddModal, { EditProps } from '../../src/components/admin/modals/AddModal'
 import AppLayout from "../../src/components/AppLayout"
 import { MoviesListItem, TvSeriesListItem, TvVideoFull } from "../../src/types/graphql"
 import { listMovieInterviewsFull, listMovieReviewsFull, listMovies, listTvInterviewsFull, listTvReviewsFull, listTvSeries } from "../../src/utils/apiUtils"
-import { buildInterviewColumns, buildMediaColumns, buildReviewColumns } from './columns'
+import { buildInterviewColumns, buildMediaColumns, buildReviewColumns } from '../../src/components/admin/columns'
 import Search from './search'
 
 

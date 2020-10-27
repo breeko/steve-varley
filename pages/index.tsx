@@ -9,8 +9,7 @@ import LatestVideos from '../src/components/landing/LatestVideos'
 import { StyledHeaderTitle } from '../src/components/style'
 import Colors from '../src/utils/colors'
 import { MediaLinks } from '../src/utils/mediaLinks'
-import { IconRow, MainLink, MainTagLine, MediaLink, RoundImage, SplashContainer } from './style'
-
+import { IconRow, MainLink, MainTagLine, MediaLink, RoundImage, SplashContainer } from '../src/style'
 
 const IndexPage: React.FunctionComponent = () => {
   return(

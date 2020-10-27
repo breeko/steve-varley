@@ -1,7 +1,7 @@
 import { Image, Typography } from "antd"
 import React from "react"
 import AppLayout from "../src/components/AppLayout"
-import { SplashContainer } from "./style"
+import { SplashContainer } from "../src/style"
 
 const { Title } = Typography
 

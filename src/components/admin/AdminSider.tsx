@@ -1,8 +1,8 @@
-import React, { useState } from "react"
 import { Button, Layout, Space } from "antd"
-import { BiLogOut, BiPlus } from "react-icons/bi"
 import { Auth } from "aws-amplify"
 import { useRouter } from "next/router"
+import React from "react"
+import { BiLogOut, BiPlus } from "react-icons/bi"
 
 const { Sider } = Layout
 

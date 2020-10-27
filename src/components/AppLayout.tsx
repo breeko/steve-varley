@@ -1,8 +1,8 @@
-import React, { ReactNode } from 'react'
-import AppHeader from './AppHeader';
-import { StyledContent, StyledInnerLayout, StyledLayout } from './style';
+import Head from 'next/head';
+import React, { ReactNode } from 'react';
 import AppFooter from './AppFooter';
-import Head from 'next/head'
+import AppHeader from './AppHeader';
+import { StyledInnerLayout, StyledLayout } from './style';
 
 type Props = {
   sider?: ReactNode
