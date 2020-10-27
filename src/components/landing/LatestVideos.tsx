@@ -1,4 +1,4 @@
-import { Col, Divider, Space } from "antd"
+import { Col, Space } from "antd"
 import Link from "next/link"
 import React, { useEffect, useState } from "react"
 import { LatestVideosRow, MainTagLine } from "../../style"
