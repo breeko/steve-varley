@@ -52,6 +52,7 @@ export const StyledHeaderIcons = styled(Space)`
   > div > a {
     color: ${Colors.white};
     margin-left: 15px;
+    cursor: pointer;
     :hover {
       /* background-color: green; */
     }
