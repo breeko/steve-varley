@@ -30,7 +30,8 @@ export const StyledHeader = styled(Header)<{showshadow: "true" | "false"}>`
   background-color: ${Colors.red};
   color: ${Colors.white};
   box-shadow: ${({showshadow}) => showshadow === "true" ? "0px 0px 3px 3px rgba(41,41,41,0.15)" : "inherit"};
-  & > div {
+  .a {
+    color: ${Colors.white} !important;
     align-items: center;
   }
 `
@@ -41,9 +42,8 @@ export const StyledHeaderTitle = styled.div<{center?: boolean}>`
   font-size: 40px;
   font-family: Ultra, serif;
   color: ${Colors.white};
-  .a {
-    color: ${Colors.white};
-    cursor: pointer; 
+  > a {
+    color: ${Colors.white}
   }
 `
 
@@ -52,7 +52,6 @@ export const StyledHeaderIcons = styled(Space)`
   > div > a {
     color: ${Colors.white};
     margin-left: 15px;
-    cursor: pointer;
     :hover {
       /* background-color: green; */
     }
@@ -62,6 +61,7 @@ export const StyledHeaderIcons = styled(Space)`
 export const StyledLayout = styled(Layout)`
   min-height: 100vh;
   background-color: white;
+  overflow: hidden;
   /* background-image: url("45-degree-fabric-dark.png") */
   /* background-image: -webkit-linear-gradient(30deg, #013A6B 50%, #004E95 50%) */
 `

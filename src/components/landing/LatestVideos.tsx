@@ -1,4 +1,4 @@
-import { Col, Space } from "antd"
+import { Col, Divider, Space } from "antd"
 import Link from "next/link"
 import React, { useEffect, useState } from "react"
 import { LatestVideosRow, MainTagLine } from "../../style"
@@ -21,7 +21,9 @@ const LatestVideos: React.FunctionComponent = () => {
         return (
           <LatestVideosRow key={v.path} gutter={[16, 16]}>
             <Col span={24}>
-              <Link href={{ pathname, query: { v: v.id } }}><a>{v.name}</a></Link>
+              <Link href={{ pathname, query: { v: v.id } }}>
+                <a style={{color: "inherit"}}>{v.name}</a>
+              </Link>
             </Col>
           </LatestVideosRow>  
         )

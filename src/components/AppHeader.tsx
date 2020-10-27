@@ -11,27 +11,27 @@ const AppHeader: React.FunctionComponent = () => {
   const showTitle = router.pathname !== "/"
 
   return(
-    <StyledHeader title="Steve Varley Reviews" showshadow={showTitle ? "true" : "false"}>
+    <StyledHeader showshadow={showTitle ? "true" : "false"}>
       <Row>
-        <Col xs={8} sm={8} md={0} style={{textAlign: "left"}}>
-          <StyledHeaderIcons direction="horizontal" >
+        <Col xs={6} sm={6} md={0} style={{textAlign: "left"}}>
+          { showTitle && <StyledHeaderIcons direction="horizontal" >
             <Link href="/">
               <a>
                 <BiHome size="30px"/>
               </a>
             </Link>
-          </StyledHeaderIcons>
+          </StyledHeaderIcons> }
         </Col>
-          <Col xs={0} sm={0} md={22}>
+        <Col xs={0} sm={0} md={22}>
           { showTitle && 
-            <Link href="/">
-              <StyledHeaderTitle center={false}>
-                <div>Steve Varley Reviews</div>
-              </StyledHeaderTitle>
-            </Link>
+            <StyledHeaderTitle center={false}>
+              <Link href="/">
+                <a>Steve Varley Reviews</a>
+              </Link>
+            </StyledHeaderTitle>
             }
           </Col>
-        <Col xs={16} md={2}>
+        <Col xs={18} md={2}>
           <StyledHeaderIcons direction="horizontal" style={{float: "right"}}>
             <Link href="/tv">
               <a>

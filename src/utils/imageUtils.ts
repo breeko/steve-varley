@@ -1,5 +1,5 @@
 import axios from "axios"
-
+import getConfig from 'next/config'
 
 interface UploadImageResponse {
   data: {
@@ -38,10 +38,11 @@ interface UploadImageResponse {
   status: number
 }
 
-process.env.IMGBB_API_KEY
+const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
 
-export const uploadImage = async (blob: Blob): Promise<UploadImageResponse> => {
-  const url = `https://api.imgbb.com/1/upload?key=${process.env.IMGBB_API_KEY}`
+export const uploadImage = async (blob: Blob): Promise<UploadImageResponse> => {  
+  const IMGBB_API_KEY = serverRuntimeConfig.IMGBB_API_KEY || publicRuntimeConfig.IMGBB_API_KEY
+  const url = `https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`
   const reader = new FileReader();
   reader.readAsDataURL(blob); 
   return new Promise(resolve => reader.onloadend = () => {

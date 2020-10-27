@@ -1,4 +1,4 @@
-import { Card, Image } from "antd"
+import { Card } from "antd"
 import { useRouter } from "next/dist/client/router"
 import React from "react"
 import { StyledMediaCard } from "./style"
@@ -20,7 +20,7 @@ const MediaCard: React.FunctionComponent<MediaCardProps> = ({ media, baseUrl }) 
   return(
     <StyledMediaCard
       hoverable
-      cover={<Image src={media.image} alt={media.name} onClick={handleClick}/>}
+      cover={<img src={media.image} alt={media.name} onClick={handleClick}/>}
       onClick={handleClick}
     >
       <Meta title={media.name} />

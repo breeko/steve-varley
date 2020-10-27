@@ -15,7 +15,7 @@ const IndexPage: React.FunctionComponent = () => {
   return(
     <AppLayout >
       <Row style={{margin: "0px", backgroundColor: "#b13633"}}>
-        <Col xs={24}>
+        <Col xs={0} sm={24}>
           <SplashContainer size="large">
             <Space direction="horizontal">
               <RoundImage src="/steve-varley-animated.jpg" alt="Steve Varley"></RoundImage>
@@ -24,6 +24,19 @@ const IndexPage: React.FunctionComponent = () => {
               </StyledHeaderTitle>
             </Space>
           </SplashContainer>
+        </Col>
+        <Col xs={24} sm={0}>
+          <SplashContainer size="large">
+            <Space direction="horizontal">
+              <RoundImage src="/steve-varley-animated.jpg" alt="Steve Varley"></RoundImage>
+            </Space>
+          </SplashContainer>
+        </Col>
+        <Col xs={24} sm={0}>
+
+          <StyledHeaderTitle center={true}>
+            Steve Varley Reviews
+          </StyledHeaderTitle>
         </Col>
       </Row>
       <Row>
