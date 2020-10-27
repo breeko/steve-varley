@@ -2,21 +2,37 @@
   "name": "with-typescript",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
+    "dev": "next dev",
+    "build": "next build && next export",
     "start": "next start",
     "type-check": "tsc"
   },
   "dependencies": {
+    "@aws-amplify/ui-react": "^0.2.23",
+    "@types/lodash": "^4.14.162",
+    "@types/styled-components": "^5.1.4",
+    "@types/xregexp": "^4.3.0",
+    "antd": "^4.7.0",
+    "aws-amplify": "^3.3.3",
+    "aws-amplify-react": "^4.2.8",
+    "axios": "^0.20.0",
+    "lodash": "^4.17.20",
     "next": "latest",
+    "query-string": "^6.13.6",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-easy-crop": "^3.2.2",
+    "react-icons": "^3.11.0",
+    "react-youtube": "^7.12.0",
+    "styled-components": "^5.2.0",
+    "xregexp": "^4.3.0"
   },
   "devDependencies": {
     "@types/node": "^12.12.21",
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",
-    "typescript": "4.0"
+    "typescript": "4.0",
+    "babel-plugin-styled-components": "latest"
   },
   "license": "MIT"
 }

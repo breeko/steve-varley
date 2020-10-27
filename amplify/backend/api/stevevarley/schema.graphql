@@ -1,0 +1,119 @@
+enum MEDIA_TYPE {
+  MOVIE
+  TV
+}
+
+enum VIDEO_TYPE {
+  REVIEW
+  INTERVIEW
+}
+
+type Media @model
+  @auth(rules: [
+    { allow: public, operations: [read] }
+    { allow: groups, groups: ["admin"] }
+  ]) {
+    id: ID! # stub
+    type: MEDIA_TYPE!
+    name: String!
+    image: String!
+    videos: [Video] @connection(name: "Videos")
+  }
+
+type Video @model
+  @auth(rules: [
+    { allow: public, operations: [read] }
+    { allow: groups, groups: ["admin"] }
+  ]) {
+    id: ID! # youtube videoId
+    media: Media! @connection(name: "Videos")
+    type: VIDEO_TYPE!
+    name: String!
+    lengthSeconds: Int!
+    published: AWSDate!
+    path: String!
+    season: Int
+    episode: Int
+    score: Float
+  }
+
+
+type TvSeries @model
+  @auth(rules: [
+    { allow: public, operations: [read] }
+    { allow: groups, groups: ["admin"] }
+  ]) {
+    id: ID! # stub
+    name: String!
+    image: String!
+    reviews: [TvReview] @connection(name: "TvReviews")
+    interviews: [TvInterview] @connection(name: "TvInterviews")
+  }
+
+type TvReview @model
+  @auth(rules: [
+    { allow: public, operations: [read] }
+    { allow: groups, groups: ["admin"]}
+  ]) {
+    id: ID! # youtube videoId
+    series: TvSeries! @connection(name: "TvReviews")
+    name: String!
+    lengthSeconds: Int!
+    published: AWSDate!
+    path: String!
+    season: Int
+    episode: Int
+    score: Float!
+  }
+
+type TvInterview @model
+  @auth(rules: [
+    { allow: public, operations: [read] }
+    { allow: groups, groups: ["admin"] }
+  ]) {
+    id: ID! # youtube videoId
+    name: String!
+    lengthSeconds: Int!
+    published: AWSDate!
+    path: String!
+    series: TvSeries! @connection(name: "TvInterviews")
+  }
+
+type Movie @model
+  @auth(rules: [
+    { allow: public, operations: [read] }
+    { allow: groups, groups: ["admin"] }
+  ]) {
+    id: ID! # stub
+    name: String!
+    image: String!
+    reviews: [MovieReview] @connection(name: "MovieReviews")
+    interviews: [MovieInterview] @connection(name: "MovieInterviews")
+  }
+
+type MovieReview @model
+  @auth(rules: [
+    { allow: public, operations: [read] }
+    { allow: groups, groups: ["admin"] }
+  ]) {
+    id: ID! # youtube videoId
+    name: String!
+    lengthSeconds: Int!
+    published: AWSDate!
+    path: String!
+    movie: Movie! @connection(name: "MovieReviews")
+    score: Float!
+  }
+
+type MovieInterview @model
+  @auth(rules: [
+    { allow: public, operations: [read] }
+    { allow: groups, groups: ["admin"] }
+  ]) {
+    id: ID! # youtube videoId
+    name: String!
+    lengthSeconds: Int!
+    published: AWSDate!
+    path: String!
+    movie: Movie! @connection(name: "MovieInterviews")
+  }
