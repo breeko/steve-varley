@@ -42,6 +42,7 @@ export const StyledHeaderTitle = styled.div<{center?: boolean}>`
   font-family: Ultra, serif;
   color: ${Colors.white};
   .a {
+    color: ${Colors.white};
     cursor: pointer; 
   }
 `

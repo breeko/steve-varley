@@ -13,21 +13,25 @@ const AppHeader: React.FunctionComponent = () => {
   return(
     <StyledHeader title="Steve Varley Reviews" showshadow={showTitle ? "true" : "false"}>
       <Row>
-        <Col xs={8} sm={0}>
-          <StyledHeaderIcons direction="horizontal">
-            <Button type="link" shape="circle" icon={<BiHome />} size="large" href="/" />
+        <Col xs={8} sm={8} md={0} style={{textAlign: "left"}}>
+          <StyledHeaderIcons direction="horizontal" >
+            <Link href="/">
+              <a>
+                <BiHome size="30px"/>
+              </a>
+            </Link>
           </StyledHeaderIcons>
         </Col>
-          <Col xs={0} sm={22}>
+          <Col xs={0} sm={0} md={22}>
           { showTitle && 
             <Link href="/">
               <StyledHeaderTitle center={false}>
-                <a>Steve Varley Reviews</a>
+                <div>Steve Varley Reviews</div>
               </StyledHeaderTitle>
             </Link>
             }
           </Col>
-        <Col xs={16} sm={2}>
+        <Col xs={16} md={2}>
           <StyledHeaderIcons direction="horizontal" style={{float: "right"}}>
             <Link href="/tv">
               <a>
