@@ -1,6 +1,7 @@
 import { Card } from "antd"
 import { useRouter } from "next/dist/client/router"
 import React from "react"
+import { Media } from "../types/graphql"
 import { StyledMediaCard } from "./style"
 
 const { Meta } = Card

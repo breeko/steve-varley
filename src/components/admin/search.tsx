@@ -3,7 +3,7 @@ import React from "react"
 
 interface SearchProps {
   setSearch: (s: string) => void
-  options: Array<{value: string}>
+  options?: Array<{value: string}>
 }
 
 const Search: React.FunctionComponent<SearchProps> = ({ options, setSearch }) => {

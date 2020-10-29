@@ -1,25 +1,24 @@
 import { Button, Table } from "antd"
 import { ColumnsType } from "antd/lib/table"
+import _ from "lodash"
 import React from "react"
-import { Interview, Review } from "../types/graphql"
-import { getVideoId } from "../utils/youtubeUtils"
+import { Video } from "../types/graphql"
+import { isDefined } from "../utils/utils"
 
 interface ShowTableProps {
-  videos: Array<Review | Interview>
+  videos: Video[]
   onSelect: (videoId: string) => void
   loading?: boolean
 }
 
 const ShowTable: React.FunctionComponent<ShowTableProps> = ({ loading, videos, onSelect }) => {
-  
-  const columns: ColumnsType<Review | Interview> = [
+  const columns: ColumnsType<Video> = [
     {
       title: "Name",
       dataIndex: "name",
       key: "name",
       render: (v, record) => {
-        const videoId = getVideoId(record.path)
-        return <Button type="link" onClick={() => onSelect(videoId)}>{v}</Button>
+        return <Button type="link" onClick={() => onSelect(record.path)}>{v}</Button>
       }
     },
     {
@@ -35,15 +34,22 @@ const ShowTable: React.FunctionComponent<ShowTableProps> = ({ loading, videos, o
       title: "Season",
       dataIndex: "season",
       key: "season",
+      sorter: (a, b) => (a.season || Number.NEGATIVE_INFINITY) - (b.season || Number.NEGATIVE_INFINITY),
+      defaultSortOrder: "ascend",
+      filters: _.chain(videos).map(v => (v.season ? {text: `${v.season}`, value: v.season} : undefined)).uniqBy(v => v && v.text).filter(isDefined).value()
+
     },
     {
       title: "Episode",
       dataIndex: "episode",
       key: "episode",
+      sorter: (a, b) => (a.episode || Number.NEGATIVE_INFINITY) - (b.episode || Number.NEGATIVE_INFINITY),
+      defaultSortOrder: "ascend",
     },
     {
       title: "Score",
       dataIndex: "score",
+      sorter: (a, b) => (a.score || Number.NEGATIVE_INFINITY) - (b.score || Number.NEGATIVE_INFINITY),
       key: "score",
     },
   ]

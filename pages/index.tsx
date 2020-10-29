@@ -19,7 +19,7 @@ const IndexPage: React.FunctionComponent = () => {
           <SplashContainer size="large">
             <Space direction="horizontal">
               <RoundImage src="/steve-varley-animated.jpg" alt="Steve Varley"></RoundImage>
-              <StyledHeaderTitle center={false}>
+              <StyledHeaderTitle center={false} color="light">
                 Steve<br/>Varley<br/>Reviews
               </StyledHeaderTitle>
             </Space>
@@ -33,8 +33,7 @@ const IndexPage: React.FunctionComponent = () => {
           </SplashContainer>
         </Col>
         <Col xs={24} sm={0}>
-
-          <StyledHeaderTitle center={true}>
+          <StyledHeaderTitle center={true} color="light">
             Steve Varley Reviews
           </StyledHeaderTitle>
         </Col>

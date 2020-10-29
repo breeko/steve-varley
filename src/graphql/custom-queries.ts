@@ -1,173 +1,119 @@
-
-export const getTvSeriesFull = /* GraphQL */ `
-  query GetTvSeriesFull($id: ID!) {
-    getTvSeries(id: $id) {
+export const getMediaFull = /* GraphQL */ `
+  query GetMediaFull($id: ID!) {
+    getMedia(id: $id) {
       id
+      type
       name
       image
       createdAt
       updatedAt
-      reviews {
+      videos {
         items {
+          id
+          type
           name
           lengthSeconds
-          path
           published
+          path
           season
           episode
           score
+          createdAt
+          updatedAt
         }
-        nextToken
-      }
-      interviews {
-        items {
-          name
-          published
-          lengthSeconds
-          path
-        }
-        nextToken
       }
     }
   }
 `
 
-export const listTvReviewsFull = /* GraphQL */ `
-  query ListTvReviewsFull(
-    $filter: ModelTvReviewFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listTvReviews(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        name
-        lengthSeconds
-        path
-        season
-        published
-        episode
-        score
-        series {
-          id
-          name
-          image
-        }
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
-
-export const listTvInterviewFull = /* GraphQL */ `
-  query ListTvInterviewFull(
-    $filter: ModelTvInterviewFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listTvInterviews(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        name
-        lengthSeconds
-        published
-        path
-        series {
-          id
-          name
-          image
-        }
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
-
-
-
-export const getMoviesFull = /* GraphQL */ `
-  query GetMoviessFull($id: ID!) {
-    getMovie(id: $id) {
+export const getVideoFull = /* GraphQL */ `
+  query GetVideoFull($id: ID!) {
+    getVideo(id: $id) {
       id
+      type
       name
-      image
+      lengthSeconds
+      published
+      path
+      season
+      episode
+      score
       createdAt
       updatedAt
-      reviews {
-        items {
-          name
-          lengthSeconds
-          path
-          published
-          score
-        }
-        nextToken
-      }
-      interviews {
-        items {
-          name
-          published
-          lengthSeconds
-          path
-        }
-        nextToken
+      media {
+        id
+        name
+        image
+        type
       }
     }
   }
 `
 
-
-export const listMovieReviewsFull = /* GraphQL */ `
-  query ListMovieReviewsFull(
-    $filter: ModelMovieReviewFilterInput
+export const videoByVideoTypeFull = /* GraphQL */ `
+  query VideoByVideoTypeFull(
+    $type: VIDEO_TYPE
+    $sortDirection: ModelSortDirection
+    $filter: ModelVideoFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listMovieReviews(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    videoByVideoType(
+      type: $type
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
       items {
         id
+        type
         name
         lengthSeconds
-        path
         published
+        path
+        season
+        episode
         score
-        movie {
+        createdAt
+        updatedAt
+        media {
           id
           name
           image
+          type
         }
-        createdAt
-        updatedAt
       }
       nextToken
     }
   }
 `;
 
-export const listMovieInterviewsFull = /* GraphQL */ `
-  query ListMovieInterviewFull(
-    $filter: ModelMovieInterviewFilterInput
+export const listVideoFull = /* GraphQL */ `
+  query ListVideoFull(
+    $filter: ModelVideoFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listMovieInterviews(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listVideos(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        type
         name
         lengthSeconds
         published
         path
-        movie {
+        season
+        episode
+        score
+        createdAt
+        updatedAt
+        media {
           id
           name
           image
+          type
         }
-        createdAt
-        updatedAt
       }
       nextToken
     }

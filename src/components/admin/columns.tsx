@@ -1,25 +1,42 @@
-import { Button, Space } from "antd";
+import { Button } from "antd";
 import { ColumnsType } from "antd/lib/table";
 import React from "react";
 import { FiEdit } from "react-icons/fi";
-import { TvVideoFull } from "../../types/graphql";
+import { MEDIA_TYPE, VIDEO_TYPE } from "../../API";
+import { Media, VideoFull } from "../../types/graphql";
 
 
-export const buildReviewColumns = (onEdit: (id: string) => void) => {
-  const columns: ColumnsType<TvVideoFull> = [
+export const buildVideoColumns = (videos: VideoFull[], onEdit: (id: string) => void) => {
+  const columns: ColumnsType<VideoFull> = [
     {
       title: "Action",
       key: "action",
-      render: (_a, item) => <Space direction="horizontal">
-        <Button icon={<FiEdit onClick={() => onEdit(item.id)}/>}/>
-      </Space>
+      render: (_a, item) => <Button icon={<FiEdit />} onClick={() => onEdit(item.id)}/>
     },
+    {
+      title: "Video Type",
+      dataIndex: "type",
+      key: "videoType",
+      sorter: (a, b) => a.type.localeCompare(b.type),
+      onFilter: (value, record) => record.type === value,
+      filters: [{text: "Review", value: VIDEO_TYPE.REVIEW}, {text: "Interview", value: VIDEO_TYPE.INTERVIEW}]
+    },
+    {
+      title: "Media Type",
+      key: "mediaType",
+      render: (_v, r) => r.media?.type,
+      sorter: (a, b) => a?.media?.type.localeCompare(b.media?.type || "") || 0,
+      onFilter: (value, record) => record.media?.type === value,
+      filters: [{text: "Movie", value: MEDIA_TYPE.MOVIE}, {text: "TV", value: MEDIA_TYPE.TV}, {text: "Other", value: MEDIA_TYPE.OTHER}]
+    },
+
     {
       title: "Name",
       dataIndex: "name",
       key: "name",
       sorter: (a, b) => a.name.localeCompare(b.name),
       onFilter: (value, record) => record.name === value,
+      filters: videos.map(v => ({value: v.name, text: v.name}))
     },
     {
       title: "Path",
@@ -27,12 +44,13 @@ export const buildReviewColumns = (onEdit: (id: string) => void) => {
       key: "path",
     },
     {
-      title: "Series",
-      dataIndex: "series",
-      key: "series",
-      render: (_v, r) => r.series?.name,
-      sorter: (a, b) => a?.series?.name.localeCompare(b.series?.name || "") || 0,
-      onFilter: (value, record) => record.series?.name === value,
+      title: "Media",
+      dataIndex: "media",
+      key: "media",
+      render: (_v, r) => r.media?.name,
+      sorter: (a, b) => a?.media?.name.localeCompare(b.media?.name || "") || 0,
+      onFilter: (value, record) => record.media?.name === value,
+      filters: videos.map(v => ({value: v.media.name, text: v.media.name}))
     },
     {
       title: "Season",
@@ -64,56 +82,27 @@ export const buildReviewColumns = (onEdit: (id: string) => void) => {
   return columns
 }
 
-export const buildInterviewColumns = (onEdit: (id: string) => void) => {
-  const columns: ColumnsType<TvVideoFull> = [
-    {
-      title: "Action",
-      render: (_a, item) => <Space direction="horizontal">
-        <Button icon={<FiEdit onClick={() => onEdit(item.id)}/>}/>
-      </Space>
-    },
-    {
-      title: "Name",
-      dataIndex: "name",
-      key: "name",
-      sorter: (a, b) => a.name.localeCompare(b.name),
-      onFilter: (value, record) => record.name === value,
-    },
-    {
-      title: "Path",
-      dataIndex: "path",
-      key: "path",
-    },
-    {
-      title: "Series",
-      dataIndex: "series",
-      key: "series",
-      render: (_v, r) => r.series?.name,
-      sorter: (a, b) => a.series?.name.localeCompare(b.series?.name || "") || 0,
-      onFilter: (value, record) => record.series?.name === value,
-    },
-    {
-      title: "Length (seconds)",
-      dataIndex: "lengthSeconds",
-      key: "lengthSeconds",
-    },
-    {
-      title: "Published",
-      dataIndex: "published",
-      key: "published",
-    },
-  ]
-  return columns
-}
-
-export const buildMediaColumns = (onEdit: (id: string) => void) => {
-  const tvSeriesColumns: ColumnsType<{id: string, name: string}> = [
+export const buildMediaColumns = (media: Media[], onEdit: (id: string) => void) => {
+  const tvSeriesColumns: ColumnsType<Media> = [
     {
       title: "Action",
       key: "action",
-      render: (_a, item) => <Space direction="horizontal">
-        <Button icon={<FiEdit onClick={() => onEdit(item.id)}/>}/>
-      </Space>
+      render: (_a, item) =>
+        <Button icon={<FiEdit/>} onClick={() => onEdit(item.id)}/>
+    },
+    {
+      title: "Type",
+      dataIndex: "type",
+      key: "type",
+      sorter: (a, b) => a.name.localeCompare(b.name),
+      onFilter: (value, record) => record.type === value,
+      filters: [{text: "TV", value: MEDIA_TYPE.TV}, {text: "Movie", value: MEDIA_TYPE.MOVIE}, {text: "Other", value: MEDIA_TYPE.OTHER}]
+    },
+    {
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
+      sorter: (a, b) => a.name.localeCompare(b.name),
     },
     {
       title: "Name",
@@ -121,6 +110,7 @@ export const buildMediaColumns = (onEdit: (id: string) => void) => {
       key: "name",
       sorter: (a, b) => a.name.localeCompare(b.name),
       onFilter: (value, record) => record.name === value,
+      filters: media.map(m => ({value: m.name, text: m.name}))
     },
     {
       title: "Image",

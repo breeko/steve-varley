@@ -1,6 +1,7 @@
 enum MEDIA_TYPE {
   MOVIE
   TV
+  OTHER
 }
 
 enum VIDEO_TYPE {
@@ -9,6 +10,7 @@ enum VIDEO_TYPE {
 }
 
 type Media @model
+  @key(name: "mediaByMediaType", fields: ["type"], queryField: "mediaByMediaType")
   @auth(rules: [
     { allow: public, operations: [read] }
     { allow: groups, groups: ["admin"] }
@@ -21,6 +23,7 @@ type Media @model
   }
 
 type Video @model
+  @key(name: "videoByVideoType", fields: ["type"], queryField: "videoByVideoType")
   @auth(rules: [
     { allow: public, operations: [read] }
     { allow: groups, groups: ["admin"] }

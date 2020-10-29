@@ -3,7 +3,8 @@ import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
 import YouTube from "react-youtube"
 import NotFound from "../../pages/404"
-import { Interview, Review } from "../types/graphql"
+import { Video } from "../types/graphql"
+import { getVideoId } from "../utils/youtubeUtils"
 import AppLayout from "./AppLayout"
 import { StyledContent } from "./style"
 import ShowTable from "./VideoTable"
@@ -13,7 +14,7 @@ const { Title } = Typography
 interface VideoPageProps {
   isLoading: boolean
   title: string
-  videos: Array<Review | Interview>
+  videos: Video[]
 }
 
 const VideoPage: React.FunctionComponent<VideoPageProps> = ({ isLoading, title, videos }) => {
@@ -23,13 +24,20 @@ const VideoPage: React.FunctionComponent<VideoPageProps> = ({ isLoading, title, 
 
   useEffect(() => {
     const { v } = router.query
+    console.log(v)
     if (typeof v === "string") {
-      setSelectedReview(v)
+      
+      const review = videos.find(video => video.id === v)
+      console.log(review)
+      if (review) {
+        handleSelectReview(review.path)
+      }
     }
-  }, [])
+  }, [videos])
 
-  const handleSelectReview = (review: string) => {
-    setSelectedReview(review)
+  const handleSelectReview = (path: string) => {
+    const videoId = getVideoId(path)
+    setSelectedReview(videoId)
     window.scroll({top: 0, left: 0, behavior: 'smooth' })
   }
 

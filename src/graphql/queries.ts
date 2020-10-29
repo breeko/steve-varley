@@ -36,6 +36,33 @@ export const getMedia = /* GraphQL */ `
     }
   }
 `;
+export const mediaByMediaType = /* GraphQL */ `
+  query MediaByMediaType(
+    $type: MEDIA_TYPE
+    $sortDirection: ModelSortDirection
+    $filter: ModelMediaFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    mediaByMediaType(
+      type: $type
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        type
+        name
+        image
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getVideo = /* GraphQL */ `
   query GetVideo($id: ID!) {
     getVideo(id: $id) {
@@ -68,6 +95,38 @@ export const listVideos = /* GraphQL */ `
     $nextToken: String
   ) {
     listVideos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        type
+        name
+        lengthSeconds
+        published
+        path
+        season
+        episode
+        score
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const videoByVideoType = /* GraphQL */ `
+  query VideoByVideoType(
+    $type: VIDEO_TYPE
+    $sortDirection: ModelSortDirection
+    $filter: ModelVideoFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    videoByVideoType(
+      type: $type
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
       items {
         id
         type

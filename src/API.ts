@@ -2,8 +2,28 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type ModelTvReviewFilterInput = {
+export enum MEDIA_TYPE {
+  MOVIE = "MOVIE",
+  TV = "TV",
+  OTHER = "OTHER",
+}
+
+
+export enum VIDEO_TYPE {
+  REVIEW = "REVIEW",
+  INTERVIEW = "INTERVIEW",
+}
+
+
+export enum ModelSortDirection {
+  ASC = "ASC",
+  DESC = "DESC",
+}
+
+
+export type ModelVideoFilterInput = {
   id?: ModelIDInput | null,
+  type?: ModelVIDEO_TYPEInput | null,
   name?: ModelStringInput | null,
   lengthSeconds?: ModelIntInput | null,
   published?: ModelStringInput | null,
@@ -11,9 +31,9 @@ export type ModelTvReviewFilterInput = {
   season?: ModelIntInput | null,
   episode?: ModelIntInput | null,
   score?: ModelFloatInput | null,
-  and?: Array< ModelTvReviewFilterInput | null > | null,
-  or?: Array< ModelTvReviewFilterInput | null > | null,
-  not?: ModelTvReviewFilterInput | null,
+  and?: Array< ModelVideoFilterInput | null > | null,
+  or?: Array< ModelVideoFilterInput | null > | null,
+  not?: ModelVideoFilterInput | null,
 };
 
 export type ModelIDInput = {
@@ -56,6 +76,11 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
+export type ModelVIDEO_TYPEInput = {
+  eq?: VIDEO_TYPE | null,
+  ne?: VIDEO_TYPE | null,
+};
+
 export type ModelStringInput = {
   ne?: string | null,
   eq?: string | null,
@@ -96,52 +121,12 @@ export type ModelFloatInput = {
   attributeType?: ModelAttributeTypes | null,
 };
 
-export type ModelTvInterviewFilterInput = {
-  id?: ModelIDInput | null,
-  name?: ModelStringInput | null,
-  lengthSeconds?: ModelIntInput | null,
-  published?: ModelStringInput | null,
-  path?: ModelStringInput | null,
-  and?: Array< ModelTvInterviewFilterInput | null > | null,
-  or?: Array< ModelTvInterviewFilterInput | null > | null,
-  not?: ModelTvInterviewFilterInput | null,
-};
-
-export type ModelMovieReviewFilterInput = {
-  id?: ModelIDInput | null,
-  name?: ModelStringInput | null,
-  lengthSeconds?: ModelIntInput | null,
-  published?: ModelStringInput | null,
-  path?: ModelStringInput | null,
-  score?: ModelFloatInput | null,
-  and?: Array< ModelMovieReviewFilterInput | null > | null,
-  or?: Array< ModelMovieReviewFilterInput | null > | null,
-  not?: ModelMovieReviewFilterInput | null,
-};
-
-export type ModelMovieInterviewFilterInput = {
-  id?: ModelIDInput | null,
-  name?: ModelStringInput | null,
-  lengthSeconds?: ModelIntInput | null,
-  published?: ModelStringInput | null,
-  path?: ModelStringInput | null,
-  and?: Array< ModelMovieInterviewFilterInput | null > | null,
-  or?: Array< ModelMovieInterviewFilterInput | null > | null,
-  not?: ModelMovieInterviewFilterInput | null,
-};
-
 export type CreateMediaInput = {
   id?: string | null,
   type: MEDIA_TYPE,
   name: string,
   image: string,
 };
-
-export enum MEDIA_TYPE {
-  MOVIE = "MOVIE",
-  TV = "TV",
-}
-
 
 export type ModelMediaConditionInput = {
   type?: ModelMEDIA_TYPEInput | null,
@@ -181,12 +166,6 @@ export type CreateVideoInput = {
   videoMediaId: string,
 };
 
-export enum VIDEO_TYPE {
-  REVIEW = "REVIEW",
-  INTERVIEW = "INTERVIEW",
-}
-
-
 export type ModelVideoConditionInput = {
   type?: ModelVIDEO_TYPEInput | null,
   name?: ModelStringInput | null,
@@ -199,11 +178,6 @@ export type ModelVideoConditionInput = {
   and?: Array< ModelVideoConditionInput | null > | null,
   or?: Array< ModelVideoConditionInput | null > | null,
   not?: ModelVideoConditionInput | null,
-};
-
-export type ModelVIDEO_TYPEInput = {
-  eq?: VIDEO_TYPE | null,
-  ne?: VIDEO_TYPE | null,
 };
 
 export type UpdateVideoInput = {
@@ -421,21 +395,6 @@ export type ModelMediaFilterInput = {
   not?: ModelMediaFilterInput | null,
 };
 
-export type ModelVideoFilterInput = {
-  id?: ModelIDInput | null,
-  type?: ModelVIDEO_TYPEInput | null,
-  name?: ModelStringInput | null,
-  lengthSeconds?: ModelIntInput | null,
-  published?: ModelStringInput | null,
-  path?: ModelStringInput | null,
-  season?: ModelIntInput | null,
-  episode?: ModelIntInput | null,
-  score?: ModelFloatInput | null,
-  and?: Array< ModelVideoFilterInput | null > | null,
-  or?: Array< ModelVideoFilterInput | null > | null,
-  not?: ModelVideoFilterInput | null,
-};
-
 export type ModelTvSeriesFilterInput = {
   id?: ModelIDInput | null,
   name?: ModelStringInput | null,
@@ -443,6 +402,31 @@ export type ModelTvSeriesFilterInput = {
   and?: Array< ModelTvSeriesFilterInput | null > | null,
   or?: Array< ModelTvSeriesFilterInput | null > | null,
   not?: ModelTvSeriesFilterInput | null,
+};
+
+export type ModelTvReviewFilterInput = {
+  id?: ModelIDInput | null,
+  name?: ModelStringInput | null,
+  lengthSeconds?: ModelIntInput | null,
+  published?: ModelStringInput | null,
+  path?: ModelStringInput | null,
+  season?: ModelIntInput | null,
+  episode?: ModelIntInput | null,
+  score?: ModelFloatInput | null,
+  and?: Array< ModelTvReviewFilterInput | null > | null,
+  or?: Array< ModelTvReviewFilterInput | null > | null,
+  not?: ModelTvReviewFilterInput | null,
+};
+
+export type ModelTvInterviewFilterInput = {
+  id?: ModelIDInput | null,
+  name?: ModelStringInput | null,
+  lengthSeconds?: ModelIntInput | null,
+  published?: ModelStringInput | null,
+  path?: ModelStringInput | null,
+  and?: Array< ModelTvInterviewFilterInput | null > | null,
+  or?: Array< ModelTvInterviewFilterInput | null > | null,
+  not?: ModelTvInterviewFilterInput | null,
 };
 
 export type ModelMovieFilterInput = {
@@ -454,199 +438,155 @@ export type ModelMovieFilterInput = {
   not?: ModelMovieFilterInput | null,
 };
 
-export type GetTvSeriesFullQueryVariables = {
+export type ModelMovieReviewFilterInput = {
+  id?: ModelIDInput | null,
+  name?: ModelStringInput | null,
+  lengthSeconds?: ModelIntInput | null,
+  published?: ModelStringInput | null,
+  path?: ModelStringInput | null,
+  score?: ModelFloatInput | null,
+  and?: Array< ModelMovieReviewFilterInput | null > | null,
+  or?: Array< ModelMovieReviewFilterInput | null > | null,
+  not?: ModelMovieReviewFilterInput | null,
+};
+
+export type ModelMovieInterviewFilterInput = {
+  id?: ModelIDInput | null,
+  name?: ModelStringInput | null,
+  lengthSeconds?: ModelIntInput | null,
+  published?: ModelStringInput | null,
+  path?: ModelStringInput | null,
+  and?: Array< ModelMovieInterviewFilterInput | null > | null,
+  or?: Array< ModelMovieInterviewFilterInput | null > | null,
+  not?: ModelMovieInterviewFilterInput | null,
+};
+
+export type GetMediaFullQueryVariables = {
   id: string,
 };
 
-export type GetTvSeriesFullQuery = {
-  getTvSeries:  {
-    __typename: "TvSeries",
+export type GetMediaFullQuery = {
+  getMedia:  {
+    __typename: "Media",
     id: string,
+    type: MEDIA_TYPE,
     name: string,
     image: string,
     createdAt: string,
     updatedAt: string,
-    reviews:  {
-      __typename: "ModelTvReviewConnection",
+    videos:  {
+      __typename: "ModelVideoConnection",
       items:  Array< {
-        __typename: "TvReview",
+        __typename: "Video",
+        id: string,
+        type: VIDEO_TYPE,
         name: string,
         lengthSeconds: number,
-        path: string,
         published: string,
+        path: string,
         season: number | null,
         episode: number | null,
-        score: number,
+        score: number | null,
+        createdAt: string,
+        updatedAt: string,
       } | null > | null,
-      nextToken: string | null,
-    } | null,
-    interviews:  {
-      __typename: "ModelTvInterviewConnection",
-      items:  Array< {
-        __typename: "TvInterview",
-        name: string,
-        published: string,
-        lengthSeconds: number,
-        path: string,
-      } | null > | null,
-      nextToken: string | null,
     } | null,
   } | null,
 };
 
-export type ListTvReviewsFullQueryVariables = {
-  filter?: ModelTvReviewFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListTvReviewsFullQuery = {
-  listTvReviews:  {
-    __typename: "ModelTvReviewConnection",
-    items:  Array< {
-      __typename: "TvReview",
-      id: string,
-      name: string,
-      lengthSeconds: number,
-      path: string,
-      season: number | null,
-      published: string,
-      episode: number | null,
-      score: number,
-      series:  {
-        __typename: "TvSeries",
-        id: string,
-        name: string,
-        image: string,
-      },
-      createdAt: string,
-      updatedAt: string,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
-export type ListTvInterviewFullQueryVariables = {
-  filter?: ModelTvInterviewFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListTvInterviewFullQuery = {
-  listTvInterviews:  {
-    __typename: "ModelTvInterviewConnection",
-    items:  Array< {
-      __typename: "TvInterview",
-      id: string,
-      name: string,
-      lengthSeconds: number,
-      published: string,
-      path: string,
-      series:  {
-        __typename: "TvSeries",
-        id: string,
-        name: string,
-        image: string,
-      },
-      createdAt: string,
-      updatedAt: string,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
-export type GetMoviessFullQueryVariables = {
+export type GetVideoFullQueryVariables = {
   id: string,
 };
 
-export type GetMoviessFullQuery = {
-  getMovie:  {
-    __typename: "Movie",
+export type GetVideoFullQuery = {
+  getVideo:  {
+    __typename: "Video",
     id: string,
+    type: VIDEO_TYPE,
     name: string,
-    image: string,
+    lengthSeconds: number,
+    published: string,
+    path: string,
+    season: number | null,
+    episode: number | null,
+    score: number | null,
     createdAt: string,
     updatedAt: string,
-    reviews:  {
-      __typename: "ModelMovieReviewConnection",
-      items:  Array< {
-        __typename: "MovieReview",
-        name: string,
-        lengthSeconds: number,
-        path: string,
-        published: string,
-        score: number,
-      } | null > | null,
-      nextToken: string | null,
-    } | null,
-    interviews:  {
-      __typename: "ModelMovieInterviewConnection",
-      items:  Array< {
-        __typename: "MovieInterview",
-        name: string,
-        published: string,
-        lengthSeconds: number,
-        path: string,
-      } | null > | null,
-      nextToken: string | null,
-    } | null,
+    media:  {
+      __typename: "Media",
+      id: string,
+      name: string,
+      image: string,
+      type: MEDIA_TYPE,
+    },
   } | null,
 };
 
-export type ListMovieReviewsFullQueryVariables = {
-  filter?: ModelMovieReviewFilterInput | null,
+export type VideoByVideoTypeFullQueryVariables = {
+  type?: VIDEO_TYPE | null,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelVideoFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListMovieReviewsFullQuery = {
-  listMovieReviews:  {
-    __typename: "ModelMovieReviewConnection",
+export type VideoByVideoTypeFullQuery = {
+  videoByVideoType:  {
+    __typename: "ModelVideoConnection",
     items:  Array< {
-      __typename: "MovieReview",
+      __typename: "Video",
       id: string,
+      type: VIDEO_TYPE,
       name: string,
       lengthSeconds: number,
-      path: string,
       published: string,
-      score: number,
-      movie:  {
-        __typename: "Movie",
+      path: string,
+      season: number | null,
+      episode: number | null,
+      score: number | null,
+      createdAt: string,
+      updatedAt: string,
+      media:  {
+        __typename: "Media",
         id: string,
         name: string,
         image: string,
+        type: MEDIA_TYPE,
       },
-      createdAt: string,
-      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
 };
 
-export type ListMovieInterviewFullQueryVariables = {
-  filter?: ModelMovieInterviewFilterInput | null,
+export type ListVideoFullQueryVariables = {
+  filter?: ModelVideoFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListMovieInterviewFullQuery = {
-  listMovieInterviews:  {
-    __typename: "ModelMovieInterviewConnection",
+export type ListVideoFullQuery = {
+  listVideos:  {
+    __typename: "ModelVideoConnection",
     items:  Array< {
-      __typename: "MovieInterview",
+      __typename: "Video",
       id: string,
+      type: VIDEO_TYPE,
       name: string,
       lengthSeconds: number,
       published: string,
       path: string,
-      movie:  {
-        __typename: "Movie",
+      season: number | null,
+      episode: number | null,
+      score: number | null,
+      createdAt: string,
+      updatedAt: string,
+      media:  {
+        __typename: "Media",
         id: string,
         name: string,
         image: string,
+        type: MEDIA_TYPE,
       },
-      createdAt: string,
-      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -1318,6 +1258,30 @@ export type GetMediaQuery = {
   } | null,
 };
 
+export type MediaByMediaTypeQueryVariables = {
+  type?: MEDIA_TYPE | null,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelMediaFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type MediaByMediaTypeQuery = {
+  mediaByMediaType:  {
+    __typename: "ModelMediaConnection",
+    items:  Array< {
+      __typename: "Media",
+      id: string,
+      type: MEDIA_TYPE,
+      name: string,
+      image: string,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
 export type GetVideoQueryVariables = {
   id: string,
 };
@@ -1356,6 +1320,35 @@ export type ListVideosQueryVariables = {
 
 export type ListVideosQuery = {
   listVideos:  {
+    __typename: "ModelVideoConnection",
+    items:  Array< {
+      __typename: "Video",
+      id: string,
+      type: VIDEO_TYPE,
+      name: string,
+      lengthSeconds: number,
+      published: string,
+      path: string,
+      season: number | null,
+      episode: number | null,
+      score: number | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
+export type VideoByVideoTypeQueryVariables = {
+  type?: VIDEO_TYPE | null,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelVideoFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type VideoByVideoTypeQuery = {
+  videoByVideoType:  {
     __typename: "ModelVideoConnection",
     items:  Array< {
       __typename: "Video",

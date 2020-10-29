@@ -36,14 +36,14 @@ export const StyledHeader = styled(Header)<{showshadow: "true" | "false"}>`
   }
 `
 
-export const StyledHeaderTitle = styled.div<{center?: boolean}>`
+export const StyledHeaderTitle = styled.div<{center?: boolean, color: "light" | "dark"}>`
   margin: 0px;
   text-align: ${({center}) => center ? "center" : "left"};
   font-size: 40px;
   font-family: Ultra, serif;
-  color: ${Colors.white};
+  color: ${({color}) => color === "light" ? Colors.white : "default" };
   > a {
-    color: ${Colors.white}
+    color: ${({color}) => color === "light" ? Colors.white : "default" };
   }
 `
 

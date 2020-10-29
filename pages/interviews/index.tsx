@@ -1,26 +1,20 @@
 import { useRouter } from "next/dist/client/router"
 import React, { useEffect, useState } from "react"
+import { VIDEO_TYPE } from "../../src/API"
 import VideoPage from "../../src/components/VideoPage"
-import { Interview, Review } from "../../src/types/graphql"
-import { listMovieInterviewsFull, listTvInterviewsFull } from "../../src/utils/apiUtils"
+import { Video } from "../../src/types/graphql"
+import { listVideo } from "../../src/utils/apiUtils"
 
 const Interviews: React.FunctionComponent = () => {
   const [isLoading, setIsLoading] = useState(true)
-  const [videos, setVideos] = useState<Array<Review | Interview>>([])
+  const [videos, setVideos] = useState<Video[]>([])
 
   const router = useRouter()
 
   const fetchInterviews = async () => {    
-    const tv = listTvInterviewsFull()
-    const movie = listMovieInterviewsFull()
-    const m = await Promise.all([tv, movie]).then(([t, m]) => {
-      let v: Array<Interview | Review> = []
-      v = v.concat(t)
-      v = v.concat(m)
-      return v
-    })
-    setVideos(m)
-    setIsLoading(false)
+    listVideo({type: VIDEO_TYPE.INTERVIEW})
+      .then(v => setVideos(v))
+      .finally(() => setIsLoading(false))
   }
 
   useEffect(() => {

@@ -24,7 +24,7 @@ const AppHeader: React.FunctionComponent = () => {
         </Col>
         <Col xs={0} sm={0} md={22}>
           { showTitle && 
-            <StyledHeaderTitle center={false}>
+            <StyledHeaderTitle center={false} color="light">
               <Link href="/">
                 <a>Steve Varley Reviews</a>
               </Link>

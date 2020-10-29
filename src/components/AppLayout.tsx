@@ -1,3 +1,4 @@
+import { Spin } from 'antd';
 import Head from 'next/head';
 import React, { ReactNode } from 'react';
 import AppFooter from './AppFooter';
@@ -8,9 +9,10 @@ type Props = {
   sider?: ReactNode
   children?: ReactNode
   showHeaderTitle?: boolean
+  isLoading?: boolean
 }
 
-const AppLayout = ({ children, sider }: Props) => (
+const AppLayout = ({ children, sider, isLoading }: Props) => (
   <StyledLayout>
     <Head>
       <title>Steve Varley Reviews</title>
@@ -21,7 +23,9 @@ const AppLayout = ({ children, sider }: Props) => (
     <AppHeader/>
     <StyledInnerLayout>
       {sider}
-      {children}
+      <Spin spinning={isLoading === true} size="large">
+        {children}
+      </Spin>
     </StyledInnerLayout>
     <AppFooter />
   </StyledLayout>

@@ -5,13 +5,15 @@ import React, { useCallback, useEffect, useState } from "react"
 import AppLayout from "../../src/components/AppLayout"
 import MediaCard from "../../src/components/MediaCard"
 import { StyledContent } from "../../src/components/style"
+import { Media } from "../types/graphql"
 
 interface MediaPageProps {
   media: Media[]
   type: "tv" | "movies"
+  isLoading: boolean
 }
 
-const MediaPage: React.FunctionComponent<MediaPageProps> = ({ media, type }) => {
+const MediaPage: React.FunctionComponent<MediaPageProps> = ({ media, type, isLoading }) => {
 
   const [filteredMedia, setFilteredMedia] = useState<Media[]>(media)
   const [search, setSearch] = useState("")
@@ -30,7 +32,7 @@ const MediaPage: React.FunctionComponent<MediaPageProps> = ({ media, type }) => 
 
 
   return(
-    <AppLayout>
+    <AppLayout isLoading={isLoading}>
       <StyledContent>
         <AutoComplete
           autoFocus
