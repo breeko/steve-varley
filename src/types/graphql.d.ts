@@ -21,8 +21,6 @@ interface Media {
   type: MEDIA_TYPE;
   name: string;
   image: string;
-  createdAt: string;
-  updatedAt: string;
 }
 
 interface MediaFull {

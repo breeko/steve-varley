@@ -1,5 +1,6 @@
 
 import { AutoComplete, Col, Divider, Row } from "antd"
+import Title from "antd/lib/typography/Title"
 import { debounce } from "lodash"
 import React, { useCallback, useEffect, useState } from "react"
 import AppLayout from "../../src/components/AppLayout"
@@ -9,7 +10,7 @@ import { Media } from "../types/graphql"
 
 interface MediaPageProps {
   media: Media[]
-  type: "tv" | "movies"
+  type: "tv" | "movies" | "interviews"
   isLoading: boolean
 }
 
@@ -30,9 +31,13 @@ const MediaPage: React.FunctionComponent<MediaPageProps> = ({ media, type, isLoa
     }
   }, 500), [media, search])
 
+  const title = type === "tv" ? "Television" : type === "movies" ? "Movies" : "Interviews"
 
   return(
     <AppLayout isLoading={isLoading}>
+      <Title level={1} style={{textAlign: "center", borderStyle: "dotted", margin: "10px"}}>
+        {title}
+      </Title>
       <StyledContent>
         <AutoComplete
           autoFocus

@@ -19,7 +19,8 @@ const ShowTable: React.FunctionComponent<ShowTableProps> = ({ loading, videos, o
       key: "name",
       render: (v, record) => {
         return <Button type="link" onClick={() => onSelect(record.path)}>{v}</Button>
-      }
+      },
+      filters: videos.map(v => ({text: v.name, value: v.name})),
     },
     {
       title: "Duration",
@@ -31,11 +32,21 @@ const ShowTable: React.FunctionComponent<ShowTableProps> = ({ loading, videos, o
       }
     },
     {
+      title: "Published",
+      dataIndex: "published",
+      key: "published",
+      sorter: (a, b) => a.published.localeCompare(b.published),
+      defaultSortOrder: "descend"
+      // render: (v: string) => {
+      //   const n = Number(v)
+      //   return `${Math.floor(n / 60)}` + ":" + `${n % 60}`.padStart(2, "0")
+      // }
+    },
+    {
       title: "Season",
       dataIndex: "season",
       key: "season",
       sorter: (a, b) => (a.season || Number.NEGATIVE_INFINITY) - (b.season || Number.NEGATIVE_INFINITY),
-      defaultSortOrder: "ascend",
       filters: _.chain(videos).map(v => (v.season ? {text: `${v.season}`, value: v.season} : undefined)).uniqBy(v => v && v.text).filter(isDefined).value()
 
     },
@@ -44,7 +55,6 @@ const ShowTable: React.FunctionComponent<ShowTableProps> = ({ loading, videos, o
       dataIndex: "episode",
       key: "episode",
       sorter: (a, b) => (a.episode || Number.NEGATIVE_INFINITY) - (b.episode || Number.NEGATIVE_INFINITY),
-      defaultSortOrder: "ascend",
     },
     {
       title: "Score",

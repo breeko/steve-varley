@@ -1,4 +1,4 @@
-import { Col, Row, Typography } from "antd"
+import { Col, Divider, Row, Typography } from "antd"
 import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
 import YouTube from "react-youtube"
@@ -24,11 +24,8 @@ const VideoPage: React.FunctionComponent<VideoPageProps> = ({ isLoading, title, 
 
   useEffect(() => {
     const { v } = router.query
-    console.log(v)
     if (typeof v === "string") {
-      
       const review = videos.find(video => video.id === v)
-      console.log(review)
       if (review) {
         handleSelectReview(review.path)
       }
@@ -54,7 +51,7 @@ const VideoPage: React.FunctionComponent<VideoPageProps> = ({ isLoading, title, 
   return(
     <AppLayout>
       <StyledContent>
-        <Title level={1}>
+        <Title level={1} style={{textAlign: "center", borderStyle: "dotted"}}>
           {title}
         </Title>
         <Row align="middle" justify="center" >
@@ -62,7 +59,8 @@ const VideoPage: React.FunctionComponent<VideoPageProps> = ({ isLoading, title, 
             {selectedReview && <YouTube videoId={selectedReview} opts={opts}/>}
           </Col>
         </Row>
-        <ShowTable loading={isLoading} videos={videos} onSelect={(r) => handleSelectReview(r)} />      
+        <Divider/>
+        <ShowTable loading={isLoading} videos={videos.map(v => ({...v, key: v.id}))} onSelect={(r) => handleSelectReview(r)} />      
       </StyledContent>
     </AppLayout>
   )

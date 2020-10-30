@@ -7,7 +7,7 @@ import { StyledMediaCard } from "./style"
 const { Meta } = Card
 
 interface MediaCardProps {
-  baseUrl: "tv" | "movies"
+  baseUrl: "tv" | "movies" | "interviews"
   media: Media
 }
 

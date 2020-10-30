@@ -69,11 +69,11 @@ const Admin: React.FunctionComponent  = () => {
         <Tabs defaultActiveKey="1" >
           <TabPane tab="Media" key="1">
             <Search setSearch={s => handleSearch("media", s)} />
-            <Table columns={mediaColumns} dataSource={filteredMedia}/>
+            <Table columns={mediaColumns} dataSource={filteredMedia.map(m => ({...m, key: m.id}))}/>
           </TabPane>
           <TabPane tab="Videos" key="2">
             <Search setSearch={s => handleSearch("video", s)} />
-            <Table columns={videoColumns} dataSource={filteredVideos}/>
+            <Table columns={videoColumns} dataSource={filteredVideos.map(m => ({...m, key: m.id}))}/>
           </TabPane>
         </Tabs>
       </Content>

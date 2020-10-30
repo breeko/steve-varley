@@ -29,7 +29,7 @@ export const MediaLink = styled.div`
 
 export const MainLink = styled.div<{white?: boolean}>`
   color: ${({white}) => white ? Colors.white : Colors.black};
-  /* font-size: 24px; */
+  font-size: 24px;
   :hover {
     cursor: pointer;
   };

@@ -66,7 +66,6 @@ const AddMediaForm: React.FunctionComponent<AddMediaFormProps> = ({ id, onComple
   }, [loadEdit])
 
   useEffect(() => {
-    console.log(errors)
   }, [errors])
   const handleDelete = async () => {
     if (id) {

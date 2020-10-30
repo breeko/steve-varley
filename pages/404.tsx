@@ -6,7 +6,7 @@ import { SplashContainer } from "../src/style"
 
 const NotFound: React.FunctionComponent = () => {
   return(
-    <AppLayout showHeaderTitle>
+    <AppLayout>
       <SplashContainer size="large">
         <Space direction="horizontal">
         <Image src="/popcorn.png" alt="Popcorn" />

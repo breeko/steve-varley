@@ -1,30 +1,25 @@
-import { useRouter } from "next/dist/client/router"
+
+import _ from "lodash"
 import React, { useEffect, useState } from "react"
 import { VIDEO_TYPE } from "../../src/API"
-import VideoPage from "../../src/components/VideoPage"
-import { Video } from "../../src/types/graphql"
+import MediaPage from "../../src/components/MediaPage"
+import { Media } from "../../src/types/graphql"
 import { listVideo } from "../../src/utils/apiUtils"
 
-const Interviews: React.FunctionComponent = () => {
+const Tv: React.FunctionComponent = () => {
   const [isLoading, setIsLoading] = useState(true)
-  const [videos, setVideos] = useState<Video[]>([])
-
-  const router = useRouter()
-
-  const fetchInterviews = async () => {    
-    listVideo({type: VIDEO_TYPE.INTERVIEW})
-      .then(v => setVideos(v))
-      .finally(() => setIsLoading(false))
-  }
+  const [media, setMedia] = useState<Media[]>([])
 
   useEffect(() => {
-    fetchInterviews()
-  }, [router.query])
+    listVideo({type: VIDEO_TYPE.INTERVIEW})
+      .then(vidoes =>_.chain(vidoes).map(v => v.media).uniqBy(m => m.name).sortBy(m => m.name).value())
+      .then(m => setMedia(m))
+      .finally(() => setIsLoading(false))
+  }, [])
 
-  // TODO: special table for interviews!!
   return(
-    <VideoPage isLoading={isLoading} title="Interviews" videos={videos} />
+    <MediaPage media={media} type="interviews" isLoading={isLoading}/>
   )
 }
 
-export default Interviews
+export default Tv

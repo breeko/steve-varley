@@ -10,6 +10,7 @@ import { StyledHeaderTitle } from '../src/components/style'
 import Colors from '../src/utils/colors'
 import { MediaLinks } from '../src/utils/mediaLinks'
 import { IconRow, MainLink, MainTagLine, MediaLink, RoundImage, SplashContainer } from '../src/style'
+import TextLoop from "react-text-loop"
 
 const IndexPage: React.FunctionComponent = () => {
   return(
@@ -42,7 +43,13 @@ const IndexPage: React.FunctionComponent = () => {
         <Col xs={24}>
           <MainTagLine>
             <Space direction="vertical">
-            Honest, genuine, funny reviews
+            <span>Honest, genuine, funny&nbsp;
+            <TextLoop springConfig={{ stiffness: 180, damping: 8 }}>
+              <span>television reviews</span>
+              <span>movie reviews</span>
+              <span>celebrity interviews</span>
+            </TextLoop>
+            </span>
             <Space direction="horizontal">
               <Link href={MediaLinks.youtube}>
                 <a>
@@ -82,8 +89,10 @@ const IndexPage: React.FunctionComponent = () => {
           <Link href="/tv">
             <a>
               <Space direction="vertical">
-                <BiTv size={60} color={Colors.white}/>
-                <MainLink white>Television</MainLink>
+                <BiTv size={60} color={Colors.white} />
+                <MainLink white >
+                  <div className="glitch" data-text="Television">Television</div>
+                </MainLink>
               </Space>
             </a>
           </Link>
@@ -93,7 +102,9 @@ const IndexPage: React.FunctionComponent = () => {
             <a>
               <Space direction="vertical">
                 <BiMovie size={60} color={Colors.white}/>
-                <MainLink white>Movies</MainLink>
+                <MainLink white>
+                  <div className="logo-1">Movies</div>
+                </MainLink>
               </Space>
             </a>
           </Link>
@@ -103,7 +114,7 @@ const IndexPage: React.FunctionComponent = () => {
             <a>
               <Space direction="vertical">
                 <BiMicrophone size={60} color={Colors.white}/>
-                <MainLink white>Interviews</MainLink>
+                <div className="celeb">Interviews</div>
               </Space>
             </a>
           </Link>
