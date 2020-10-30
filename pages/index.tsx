@@ -42,45 +42,45 @@ const IndexPage: React.FunctionComponent = () => {
       <Row>
         <Col xs={24}>
           <MainTagLine>
-            <Space direction="vertical">
-            <span>Honest, genuine, funny&nbsp;
-            <TextLoop springConfig={{ stiffness: 180, damping: 8 }}>
-              <span>television reviews</span>
-              <span>movie reviews</span>
-              <span>celebrity interviews</span>
-            </TextLoop>
-            </span>
-            <Space direction="horizontal">
-              <Link href={MediaLinks.youtube}>
-                <a>
-                  <MediaLink>
-                    <FiYoutube size={40} color={Colors.black}/>
-                  </MediaLink>
-                </a>
-              </Link>
-              <Link href={MediaLinks.twitter}>
-                <a>
-                  <MediaLink>
-                    <FiTwitter size={40} color={Colors.black}/>
-                  </MediaLink>
-                </a>
-              </Link>
-              <Link href={MediaLinks.instagram}>
-                <a>
-                  <MediaLink>
-                    <FiInstagram size={40} color={Colors.black}/>
-                  </MediaLink>
-                </a>
-              </Link>
-              <Link href={MediaLinks.paypal}>
-                <a>
-                  <MediaLink>
-                    <RiPaypalLine size={40} color={Colors.black}/>
-                  </MediaLink>
-                </a>
-              </Link>
+            <Space direction="vertical" style={{width: "100%"}}>
+              <span>Honest, genuine, funny&nbsp;
+              <TextLoop springConfig={{ stiffness: 180, damping: 8 }}>
+                <span>television reviews</span>
+                <span>movie reviews</span>
+                <span>celebrity interviews</span>
+              </TextLoop>
+              </span>
+              <Space direction="horizontal">
+                <Link href={MediaLinks.youtube}>
+                  <a>
+                    <MediaLink>
+                      <FiYoutube size={40} color={Colors.black}/>
+                    </MediaLink>
+                  </a>
+                </Link>
+                <Link href={MediaLinks.twitter}>
+                  <a>
+                    <MediaLink>
+                      <FiTwitter size={40} color={Colors.black}/>
+                    </MediaLink>
+                  </a>
+                </Link>
+                <Link href={MediaLinks.instagram}>
+                  <a>
+                    <MediaLink>
+                      <FiInstagram size={40} color={Colors.black}/>
+                    </MediaLink>
+                  </a>
+                </Link>
+                <Link href={MediaLinks.paypal}>
+                  <a>
+                    <MediaLink>
+                      <RiPaypalLine size={40} color={Colors.black}/>
+                    </MediaLink>
+                  </a>
+                </Link>
+              </Space>
             </Space>
-          </Space>
           </MainTagLine>
         </Col>
       </Row>
@@ -111,10 +111,12 @@ const IndexPage: React.FunctionComponent = () => {
         </Col>
         <Col xs={24} sm={8}>
           <Link href="/interviews">
-            <a>
+            <a >
               <Space direction="vertical">
                 <BiMicrophone size={60} color={Colors.white}/>
-                <div className="celeb">Interviews</div>
+                <MainLink white>
+                  <div className="flash">Interviews</div>
+                </MainLink>
               </Space>
             </a>
           </Link>

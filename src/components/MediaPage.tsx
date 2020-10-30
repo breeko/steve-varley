@@ -6,6 +6,7 @@ import React, { useCallback, useEffect, useState } from "react"
 import AppLayout from "../../src/components/AppLayout"
 import MediaCard from "../../src/components/MediaCard"
 import { StyledContent } from "../../src/components/style"
+import { DottedTitle } from "../style"
 import { Media } from "../types/graphql"
 
 interface MediaPageProps {
@@ -35,9 +36,9 @@ const MediaPage: React.FunctionComponent<MediaPageProps> = ({ media, type, isLoa
 
   return(
     <AppLayout isLoading={isLoading}>
-      <Title level={1} style={{textAlign: "center", borderStyle: "dotted", margin: "10px"}}>
+      <DottedTitle level={1}>
         {title}
-      </Title>
+      </DottedTitle>
       <StyledContent>
         <AutoComplete
           autoFocus

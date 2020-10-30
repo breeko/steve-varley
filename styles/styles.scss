@@ -1,8 +1,10 @@
 
 body{
-  background:black;
-  font-family: 'Varela', sans-serif;
+  background:#b13633;
 }
+
+$color1: white;
+$color2: #b13633;
 
 .glitch{
   color:white;
@@ -24,7 +26,7 @@ body{
   text-shadow:-1px 0 red;
   top:0;
   color:white;
-  background:#b13633;
+  background:$color2;
   overflow:hidden;
   clip:rect(0,900px,0,0); 
   animation:noise-anim 2s infinite linear alternate-reverse;
@@ -45,7 +47,7 @@ body{
   text-shadow:1px 0 blue; 
   top:0;
   color:white;
-  background:#b13633;
+  background:$color2;
   overflow:hidden;
   clip:rect(0,900px,0,0); 
   animation:noise-anim-2 3s infinite linear alternate-reverse;
@@ -79,23 +81,23 @@ body{
   }
 }
 
-@import url('https://fonts.googleapis.com/css?family=Monoton');
 
-$lightColor: #F5EE9E;
-$darkColor: #F49E4C;
-
-.celeb {
-  display: inline;
-  font-family: "Monoton", Helvetica, sans-serif;
-  text-transform: uppercase;
-  color: $darkColor;
-  font-size: 20px;
+.flash {
+   animation-name: flash;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
 }
 
-@supports (-webkit-background-clip: text) {
-	.celeb {
-		color: transparent;
-		background: linear-gradient(7deg, $lightColor 50%, $darkColor 0);
-		-webkit-background-clip: text;
-	}
+@keyframes flash {
+    from {color: white;}
+    to {color: #ffffff50;}
+}
+
+@keyframes blink { 50% { border-color: transparent; }  }
+
+.blink {
+  animation: blink .5s step-end infinite alternate;
 }

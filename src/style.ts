@@ -1,4 +1,5 @@
 import { Image, Row } from "antd"
+import Title from "antd/lib/typography/Title"
 import styled from "styled-components"
 import Colors from "./utils/colors"
 
@@ -55,4 +56,11 @@ export const IconRow = styled(Row)`
     cursor: pointer;
     font-style: bold;
   }
+`
+
+export const DottedTitle = styled(Title)`
+  text-align: center;
+  border-style: dotted;
+  margin: 10px;
+  /* border-color: #FFB20D; */
 `

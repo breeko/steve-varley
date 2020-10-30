@@ -3,6 +3,7 @@ import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
 import YouTube from "react-youtube"
 import NotFound from "../../pages/404"
+import { DottedTitle } from "../style"
 import { Video } from "../types/graphql"
 import { getVideoId } from "../utils/youtubeUtils"
 import AppLayout from "./AppLayout"
@@ -51,9 +52,9 @@ const VideoPage: React.FunctionComponent<VideoPageProps> = ({ isLoading, title, 
   return(
     <AppLayout>
       <StyledContent>
-        <Title level={1} style={{textAlign: "center", borderStyle: "dotted"}}>
+        <DottedTitle level={1}>
           {title}
-        </Title>
+        </DottedTitle>
         <Row align="middle" justify="center" >
           <Col xs={24}>
             {selectedReview && <YouTube videoId={selectedReview} opts={opts}/>}
