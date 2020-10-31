@@ -1,5 +1,6 @@
-// import App from "next/app";
-import type { AppProps /*, AppContext */ } from 'next/app'
+import React from "react"
+import Head from 'next/head'
+import type { AppProps } from 'next/app'
 import 'antd/dist/antd.css'
 import '../styles/styles.scss'
 // import "antd/dist/antd.dark.min.css"
@@ -7,9 +8,13 @@ import Amplify from 'aws-amplify';
 import awsconfig from '../src/aws-exports';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  // TODO: why is this not auto-generated?
   Amplify.configure({...awsconfig, aws_appsync_authenticationType: "API_KEY", })
-  return <Component {...pageProps} />
+  return <>
+    <Head>
+      <title>Steve Varley Reviews</title>
+    </Head>
+    <Component {...pageProps} />
+  </>
 }
 
 // Only uncomment this method if you have blocking data requirements for

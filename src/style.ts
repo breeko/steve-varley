@@ -51,7 +51,7 @@ export const LatestVideosRow = styled(Row)`
 export const IconRow = styled(Row)`
   text-align: center;
   padding: 20px;
-  background-color: ${Colors.red};
+  background-color: ${Colors.red} !important;
   :hover {
     cursor: pointer;
     font-style: bold;

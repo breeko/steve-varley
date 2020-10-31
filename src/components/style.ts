@@ -27,12 +27,15 @@ export const StyledHeader = styled(Header)<{showshadow: "true" | "false"}>`
   height: 64px;
   font-size: 24px;
   text-align: center;
-  background-color: ${Colors.red};
-  color: ${Colors.white};
+  background-color: ${Colors.red} !important;
+  color: ${Colors.white} !important;
   box-shadow: ${({showshadow}) => showshadow === "true" ? "0px 0px 3px 3px rgba(41,41,41,0.15)" : "inherit"};
-  .a {
+  > a {
     color: ${Colors.white} !important;
     align-items: center;
+    :hover {
+      /* color: ${Colors.white} !important; */
+    };
   }
 `
 
@@ -50,7 +53,7 @@ export const StyledHeaderTitle = styled.div<{center?: boolean, color: "light" | 
 export const StyledHeaderIcons = styled(Space)`
   cursor: pointer;
   > div > a {
-    color: ${Colors.white};
+    color: ${Colors.white} !important;
     margin-left: 15px;
     :hover {
       /* background-color: green; */
@@ -59,7 +62,7 @@ export const StyledHeaderIcons = styled(Space)`
 `
 
 export const StyledLayout = styled(Layout)`
-  min-height: 100vh;
+  min-height: 100vh !important;
   background-color: white;
   overflow: hidden;
   /* background-image: url("45-degree-fabric-dark.png") */
@@ -72,7 +75,7 @@ export const StyledInnerLayout = styled(Layout)`
 
 export const StyledFooter = styled(Footer)`
   text-align: center;
-  background-color: ${Colors.red};
+  background-color: ${Colors.red} !important;
   color: white;
   font-size: 20px;
 `
