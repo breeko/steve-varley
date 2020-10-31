@@ -2,7 +2,7 @@ import { Col, Space } from "antd"
 import Link from "next/link"
 import React, { useEffect, useState } from "react"
 import { MEDIA_TYPE } from "../../API"
-import { DottedTitle, LatestVideosRow, MainTagLine } from "../../style"
+import { DottedTitle, LatestVideosRow } from "../../style"
 import { VideoFull } from "../../types/graphql"
 import { loadLatestVideos } from "../../utils/apiUtils"
 

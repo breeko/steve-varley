@@ -4,13 +4,13 @@ import React from 'react'
 import { BiMicrophone, BiMovie, BiTv } from 'react-icons/bi'
 import { FiInstagram, FiTwitter, FiYoutube } from "react-icons/fi"
 import { RiPaypalLine } from "react-icons/ri"
+import TextLoop from "react-text-loop"
 import AppLayout from "../src/components/AppLayout"
 import LatestVideos from '../src/components/landing/LatestVideos'
 import { StyledHeaderTitle } from '../src/components/style'
+import { IconRow, MainLink, MainTagLine, MediaLink, RoundImage, SplashContainer } from '../src/style'
 import Colors from '../src/utils/colors'
 import { MediaLinks } from '../src/utils/mediaLinks'
-import { IconRow, MainLink, MainTagLine, MediaLink, RoundImage, SplashContainer } from '../src/style'
-import TextLoop from "react-text-loop"
 
 const IndexPage: React.FunctionComponent = () => {
   return(

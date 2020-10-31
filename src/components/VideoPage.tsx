@@ -1,4 +1,4 @@
-import { Col, Divider, Row, Typography } from "antd"
+import { Col, Divider, Row } from "antd"
 import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
 import YouTube from "react-youtube"
@@ -9,8 +9,6 @@ import { getVideoId } from "../utils/youtubeUtils"
 import AppLayout from "./AppLayout"
 import { StyledContent } from "./style"
 import ShowTable from "./VideoTable"
-
-const { Title } = Typography
 
 interface VideoPageProps {
   isLoading: boolean
