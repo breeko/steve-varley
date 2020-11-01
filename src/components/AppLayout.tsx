@@ -10,7 +10,7 @@ type Props = {
   isLoading?: boolean
 }
 
-const AppLayout = ({ children, sider, isLoading }: Props) => (
+const AppLayout: React.FunctionComponent<Props> = ({ children, sider, isLoading }) => (
   <StyledLayout>
     <AppHeader/>
     <StyledInnerLayout>

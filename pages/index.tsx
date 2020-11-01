@@ -15,7 +15,7 @@ import { MediaLinks } from '../src/utils/mediaLinks'
 const IndexPage: React.FunctionComponent = () => {
   return(
     <AppLayout >
-      <Row style={{margin: "0px", backgroundColor: "#b13633"}}>
+      <Row style={{backgroundColor: Colors.red}}>
         <Col xs={0} sm={24}>
           <SplashContainer size="large">
             <Space direction="horizontal">
@@ -84,7 +84,7 @@ const IndexPage: React.FunctionComponent = () => {
           </MainTagLine>
         </Col>
       </Row>
-      <IconRow gutter={[16, 16]} align="middle" justify="space-around">
+      <IconRow align="middle" justify="space-around">
         <Col xs={24} sm={8}>
           <Link href="/tv">
             <a>

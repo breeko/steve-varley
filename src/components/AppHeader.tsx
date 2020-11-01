@@ -14,7 +14,7 @@ const AppHeader: React.FunctionComponent = () => {
     <StyledHeader showshadow={showTitle ? "true" : "false"}>
       <Row>
         <Col xs={6} sm={6} md={0} style={{textAlign: "left"}}>
-          { showTitle && <StyledHeaderIcons direction="horizontal" >
+          { showTitle && <StyledHeaderIcons direction="horizontal" style={{float: "left"}} >
             <Link href="/">
               <a>
                 <BiHome size="30px"/>

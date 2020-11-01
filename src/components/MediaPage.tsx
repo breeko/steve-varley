@@ -40,7 +40,6 @@ const MediaPage: React.FunctionComponent<MediaPageProps> = ({ media, type, isLoa
       </DottedTitle>
       <StyledContent>
         <AutoComplete
-          autoFocus
           style={{width: "100%"}}
           options={media.map(tv => ({value: tv.name}))}
           placeholder="Search"

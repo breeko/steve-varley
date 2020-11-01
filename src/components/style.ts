@@ -19,8 +19,9 @@ export const StyledContent = styled(Content)`
 `
 
 export const StyledHeader = styled(Header)<{showshadow: "true" | "false"}>`
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  width: 100vw !important;
   position: fixed;
   z-index: 1;
   width: 100%;
@@ -71,10 +72,15 @@ export const StyledLayout = styled(Layout)`
 
 export const StyledInnerLayout = styled(Layout)`
   padding-top: 64px; /* height of header */
+  overflow: scroll;
 `
 
 export const StyledFooter = styled(Footer)`
   text-align: center;
+  /* position: fixed;
+  left: 0; */
+  /* bottom: 0; */
+  width: 100vw !important;
   background-color: ${Colors.red} !important;
   color: white;
   font-size: 20px;
