@@ -8,7 +8,7 @@
     "type-check": "tsc"
   },
   "resolutions": {
-    "crypto-js": "3.4.0"
+    "crypto-js": "3.3.0"
   },
   "dependencies": {
     "@aws-amplify/ui-react": "^0.2.23",
