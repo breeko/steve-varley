@@ -7,14 +7,18 @@
     "start": "next start",
     "type-check": "tsc"
   },
+  "resolutions": {
+    "crypto-js": "3.4.0"
+  },
   "dependencies": {
     "@aws-amplify/ui-react": "^0.2.23",
     "@types/lodash": "^4.14.162",
     "@types/styled-components": "^5.1.4",
     "@types/xregexp": "^4.3.0",
     "@zeit/next-sass": "^1.0.1",
+    "amazon-cognito-identity-js": "^4.5.4-unstable.3",
     "antd": "^4.7.0",
-    "aws-amplify": "^3.3.3",
+    "aws-amplify": "^3.3.8-unstable.3",
     "aws-amplify-react": "^4.2.8",
     "axios": "^0.20.0",
     "lodash": "^4.17.20",
@@ -35,8 +39,8 @@
     "@types/node": "^12.12.21",
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",
-    "typescript": "4.0",
-    "babel-plugin-styled-components": "latest"
+    "babel-plugin-styled-components": "latest",
+    "typescript": "4.0"
   },
   "license": "MIT"
 }
