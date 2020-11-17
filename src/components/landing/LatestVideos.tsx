@@ -19,7 +19,19 @@ const LatestVideos: React.FunctionComponent = () => {
       <Space direction="vertical" >
         <DottedTitle className="blink">Latest Videos</DottedTitle>
         {videos.map(v => {
-          const pathname = v.media.type === MEDIA_TYPE.TV ? `/tv/${v.media.id}` : v.media.type === MEDIA_TYPE.MOVIE ? `/movies/${v.media.id}` : ""
+          let prefix = ""
+          switch(v.media.type) {
+            case MEDIA_TYPE.TV:
+              prefix = `/tv`
+              break
+            case MEDIA_TYPE.MOVIE:
+              prefix = `/movies`
+              break
+            case MEDIA_TYPE.OTHER:
+              prefix = `/interviews`
+              break
+          }
+          const pathname = `${prefix}/${v.media.id}`
           return (
             <LatestVideosRow key={v.path} gutter={[16, 16]}>
               <Col span={24}>
