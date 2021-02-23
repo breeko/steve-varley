@@ -4,11 +4,12 @@ import type { AppProps } from 'next/app'
 import 'antd/dist/antd.css'
 import '../styles/styles.scss'
 // import "antd/dist/antd.dark.min.css"
-import Amplify from 'aws-amplify';
+import Amplify, { Auth } from 'aws-amplify';
 import awsconfig from '../src/aws-exports';
 
 function MyApp({ Component, pageProps }: AppProps) {
   Amplify.configure({...awsconfig, aws_appsync_authenticationType: "API_KEY", })
+  Auth.configure(awsconfig)
   return <>
     <Head>
       <title>Steve Varley Reviews</title>
