@@ -4,7 +4,6 @@ import React from 'react'
 import { BiMicrophone, BiMovie, BiTv } from 'react-icons/bi'
 import { FiInstagram, FiTwitter, FiYoutube } from "react-icons/fi"
 import { BiCameraMovie } from "react-icons/bi"
-import { RiPaypalLine } from "react-icons/ri"
 import TextLoop from "react-text-loop"
 import AppLayout from "../src/components/AppLayout"
 import LatestVideos from '../src/components/landing/LatestVideos'
@@ -77,13 +76,6 @@ const IndexPage: React.FunctionComponent = () => {
                   <a>
                     <MediaLink>
                       <BiCameraMovie size={40} color={Colors.black}/>
-                    </MediaLink>
-                  </a>
-                </Link>
-                <Link href={MediaLinks.paypal}>
-                  <a>
-                    <MediaLink>
-                      <RiPaypalLine size={40} color={Colors.black}/>
                     </MediaLink>
                   </a>
                 </Link>
