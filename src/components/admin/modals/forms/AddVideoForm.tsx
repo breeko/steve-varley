@@ -45,7 +45,7 @@ const AddVideoForm: React.FunctionComponent<AddTvFormProps> = ({ onComplete, id 
   const [form] = Form.useForm<FormProps>()
   const [errors, setErrors] = useState<string[]>([])
   const [isLoading, setIsLoading] = useState(true)
-  const [validated, setValidated] = useState(false)
+  // const [validated, setValidated] = useState(false)
   const [validateStatus, setValidateStatus] = useState<ValidationStatus | undefined>()
 
   const [mediaChoices, setMediaChoices] = useState<Media[]>([])
@@ -102,7 +102,7 @@ const AddVideoForm: React.FunctionComponent<AddTvFormProps> = ({ onComplete, id 
       const lengthSeconds = Number.parseInt(meta.video_details.lengthSeconds)
       const published = meta.video_details.publishDate
       form.setFieldsValue({name: meta.title, lengthSeconds, published})
-      setValidated(true)
+      // setValidated(true)
     } catch {
       const status: ValidationStatus = {
         status: "error",
@@ -130,7 +130,7 @@ const AddVideoForm: React.FunctionComponent<AddTvFormProps> = ({ onComplete, id 
           <Input />
         </Form.Item>
         <Form.Item name="path" label="url" validateStatus={validateStatus?.status} help={validateStatus?.message} rules={[{ required: true }]}>
-          <Input onChange={() => {setValidated(false); setValidateStatus(undefined)}} />
+          <Input onChange={() => {/*setValidated(false);*/ setValidateStatus(undefined)}} />
         </Form.Item>
         <Form.Item name="season" label="Season" rules={[{ required: false }]}>
           <InputNumber min={1} />
@@ -163,7 +163,7 @@ const AddVideoForm: React.FunctionComponent<AddTvFormProps> = ({ onComplete, id 
           <Button type="primary" onClick={() => validate()}>
             Validate
           </Button>
-          <Button htmlType="button" onClick={() => {form.resetFields(); setValidated(false) }}>
+          <Button htmlType="button" onClick={() => {form.resetFields(); /*setValidated(false)*/ }}>
             Reset
           </Button>
           {/* NOTE: Removed disabled={!validated} since get video info is not 100% */}
