@@ -166,7 +166,8 @@ const AddVideoForm: React.FunctionComponent<AddTvFormProps> = ({ onComplete, id 
           <Button htmlType="button" onClick={() => {form.resetFields(); setValidated(false) }}>
             Reset
           </Button>
-          <Button htmlType="submit" disabled={!validated}>
+          {/* NOTE: Removed disabled={!validated} since get video info is not 100% */}
+          <Button htmlType="submit" >
             Submit
           </Button>
 
