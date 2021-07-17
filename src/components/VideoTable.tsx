@@ -22,15 +22,15 @@ const ShowTable: React.FunctionComponent<ShowTableProps> = ({ loading, videos, o
       },
       filters: videos.map(v => ({text: v.name, value: v.name})),
     },
-    {
-      title: "Duration",
-      dataIndex: "lengthSeconds",
-      key: "lengthSeconds",
-      render: (v: string) => {
-        const n = Number(v)
-        return `${Math.floor(n / 60)}` + ":" + `${n % 60}`.padStart(2, "0")
-      }
-    },
+    // {
+    //   title: "Duration",
+    //   dataIndex: "lengthSeconds",
+    //   key: "lengthSeconds",
+    //   render: (v: string) => {
+    //     const n = Number(v)
+    //     return `${Math.floor(n / 60)}` + ":" + `${n % 60}`.padStart(2, "0")
+    //   }
+    // },
     {
       title: "Published",
       dataIndex: "published",
