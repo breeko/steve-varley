@@ -17,7 +17,7 @@ const IndexPage: React.FunctionComponent = () => {
     <AppLayout >
       <Row style={{backgroundColor: Colors.red}}>
         <Col xs={0} sm={24}>
-          <SplashContainer size="large">
+          <SplashContainer padded={true} size="large">
             <Space direction="horizontal">
               <RoundImage src="/steve-varley-animated.jpg" alt="Steve Varley"></RoundImage>
               <StyledHeaderTitle center={false} color="light">
@@ -27,7 +27,7 @@ const IndexPage: React.FunctionComponent = () => {
           </SplashContainer>
         </Col>
         <Col xs={24} sm={0}>
-          <SplashContainer size="large">
+          <SplashContainer padded={false} size="large">
             <Space direction="horizontal">
               <RoundImage src="/steve-varley-animated.jpg" alt="Steve Varley"></RoundImage>
             </Space>
