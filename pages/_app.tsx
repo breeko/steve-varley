@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   Auth.configure(awsconfig)
   return <>
     <Head>
-      <title>Steve Varley Reviews</title>
+      <title>Steve Varley</title>
     </Head>
     <Component {...pageProps} />
   </>
