@@ -3,11 +3,11 @@ import Title from "antd/lib/typography/Title"
 import styled from "styled-components"
 import Colors from "./utils/colors"
 
-export const SplashContainer = styled.div<{size: "large" | "medium"}>`
+export const SplashContainer = styled.div<{padded: boolean, size: "large" | "medium"}>`
   width: ${(p) => p.size === "large" ? "50%" : "35%"};
   margin: auto;
   text-align:center;
-  padding: 20px;
+  padding: ${p => p.padded ? "20px" : "0px"};
 `
 
 export const RoundImage = styled(Image)`

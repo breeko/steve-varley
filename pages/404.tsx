@@ -7,7 +7,7 @@ import { SplashContainer } from "../src/style"
 const NotFound: React.FunctionComponent = () => {
   return(
     <AppLayout>
-      <SplashContainer size="large">
+      <SplashContainer padded={true} size="large">
         <Space direction="horizontal">
         <Image src="/popcorn.png" alt="Popcorn" />
         <StyledHeaderTitle center={false} color="dark">Page<br/>not<br/>found</StyledHeaderTitle>

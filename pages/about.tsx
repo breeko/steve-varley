@@ -16,7 +16,7 @@ const AboutPage: React.FunctionComponent = () => {
 
   return (
     <Layout>
-      <SplashContainer size="medium">
+      <SplashContainer padded={true} size="medium">
         <Title level={1}>About Steve Varley</Title>
         <YouTube
           videoId={FAQ_ID}                  // defaults -> null

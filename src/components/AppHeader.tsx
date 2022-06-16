@@ -26,7 +26,11 @@ const AppHeader: React.FunctionComponent = () => {
           { showTitle && 
             <StyledHeaderTitle center={false} color="light">
               <Link href="/">
+<<<<<<< HEAD
                 <a>Steve Varley Show</a>
+=======
+                <a>Steve Varley</a>
+>>>>>>> 9edd31af24fdc202c3144a3d5cd934a427074d41
               </Link>
             </StyledHeaderTitle>
             }
