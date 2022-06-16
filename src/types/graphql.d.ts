@@ -8,9 +8,9 @@ interface Video {
   lengthSeconds: number;
   published: string;
   path: string;
-  season: number | null;
-  episode: number | null;
-  score: number | null;
+  season?: number | null;
+  episode?: number | null;
+  score?: number | null;
   createdAt: string;
   updatedAt: string;
 }
@@ -42,9 +42,9 @@ interface VideoFull {
   lengthSeconds: number;
   published: string;
   path: string;
-  season: number | null;
-  episode: number | null;
-  score: number | null;
+  season?: number | null;
+  episode?: number | null;
+  score?: number | null;
   createdAt: string;
   updatedAt: string;
   media: {
