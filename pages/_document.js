@@ -23,7 +23,7 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head title="Steve Varley Reviews">
+        <Head title="Steve Varley Show">
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-D4669286HK"></script>
           <script
               dangerouslySetInnerHTML={{

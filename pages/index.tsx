@@ -21,7 +21,7 @@ const IndexPage: React.FunctionComponent = () => {
             <Space direction="horizontal">
               <RoundImage src="/steve-varley-animated.jpg" alt="Steve Varley"></RoundImage>
               <StyledHeaderTitle center={false} color="light">
-                Steve<br/>Varley<br/>Reviews
+                Steve<br/>Varley<br/>Show
               </StyledHeaderTitle>
             </Space>
           </SplashContainer>
@@ -35,7 +35,7 @@ const IndexPage: React.FunctionComponent = () => {
         </Col>
         <Col xs={24} sm={0}>
           <StyledHeaderTitle center={true} color="light">
-            Steve Varley Reviews
+            Steve Varley Show
           </StyledHeaderTitle>
         </Col>
       </Row>

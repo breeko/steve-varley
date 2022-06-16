@@ -2,12 +2,45 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
+export type Media = {
+  __typename: "Media",
+  id: string,
+  type: MEDIA_TYPE,
+  name: string,
+  image: string,
+  createdAt: string,
+  updatedAt: string,
+  videos?: ModelVideoConnection | null,
+};
+
 export enum MEDIA_TYPE {
   MOVIE = "MOVIE",
   TV = "TV",
   OTHER = "OTHER",
 }
 
+
+export type ModelVideoConnection = {
+  __typename: "ModelVideoConnection",
+  items:  Array<Video | null >,
+  nextToken?: string | null,
+};
+
+export type Video = {
+  __typename: "Video",
+  id: string,
+  type: VIDEO_TYPE,
+  name: string,
+  lengthSeconds: number,
+  published: string,
+  path: string,
+  season?: number | null,
+  episode?: number | null,
+  score?: number | null,
+  createdAt: string,
+  updatedAt: string,
+  media: Media,
+};
 
 export enum VIDEO_TYPE {
   REVIEW = "REVIEW",
@@ -150,7 +183,7 @@ export type UpdateMediaInput = {
 };
 
 export type DeleteMediaInput = {
-  id?: string | null,
+  id: string,
 };
 
 export type CreateVideoInput = {
@@ -194,7 +227,7 @@ export type UpdateVideoInput = {
 };
 
 export type DeleteVideoInput = {
-  id?: string | null,
+  id: string,
 };
 
 export type ModelMediaFilterInput = {
@@ -207,12 +240,18 @@ export type ModelMediaFilterInput = {
   not?: ModelMediaFilterInput | null,
 };
 
+export type ModelMediaConnection = {
+  __typename: "ModelMediaConnection",
+  items:  Array<Media | null >,
+  nextToken?: string | null,
+};
+
 export type GetMediaFullQueryVariables = {
   id: string,
 };
 
 export type GetMediaFullQuery = {
-  getMedia:  {
+  getMedia?:  {
     __typename: "Media",
     id: string,
     type: MEDIA_TYPE,
@@ -220,7 +259,7 @@ export type GetMediaFullQuery = {
     image: string,
     createdAt: string,
     updatedAt: string,
-    videos:  {
+    videos?:  {
       __typename: "ModelVideoConnection",
       items:  Array< {
         __typename: "Video",
@@ -230,12 +269,12 @@ export type GetMediaFullQuery = {
         lengthSeconds: number,
         published: string,
         path: string,
-        season: number | null,
-        episode: number | null,
-        score: number | null,
+        season?: number | null,
+        episode?: number | null,
+        score?: number | null,
         createdAt: string,
         updatedAt: string,
-      } | null > | null,
+      } | null >,
     } | null,
   } | null,
 };
@@ -245,7 +284,7 @@ export type GetVideoFullQueryVariables = {
 };
 
 export type GetVideoFullQuery = {
-  getVideo:  {
+  getVideo?:  {
     __typename: "Video",
     id: string,
     type: VIDEO_TYPE,
@@ -253,9 +292,9 @@ export type GetVideoFullQuery = {
     lengthSeconds: number,
     published: string,
     path: string,
-    season: number | null,
-    episode: number | null,
-    score: number | null,
+    season?: number | null,
+    episode?: number | null,
+    score?: number | null,
     createdAt: string,
     updatedAt: string,
     media:  {
@@ -277,7 +316,7 @@ export type VideoByVideoTypeFullQueryVariables = {
 };
 
 export type VideoByVideoTypeFullQuery = {
-  videoByVideoType:  {
+  videoByVideoType?:  {
     __typename: "ModelVideoConnection",
     items:  Array< {
       __typename: "Video",
@@ -287,9 +326,9 @@ export type VideoByVideoTypeFullQuery = {
       lengthSeconds: number,
       published: string,
       path: string,
-      season: number | null,
-      episode: number | null,
-      score: number | null,
+      season?: number | null,
+      episode?: number | null,
+      score?: number | null,
       createdAt: string,
       updatedAt: string,
       media:  {
@@ -299,8 +338,8 @@ export type VideoByVideoTypeFullQuery = {
         image: string,
         type: MEDIA_TYPE,
       },
-    } | null > | null,
-    nextToken: string | null,
+    } | null >,
+    nextToken?: string | null,
   } | null,
 };
 
@@ -311,7 +350,7 @@ export type ListVideoFullQueryVariables = {
 };
 
 export type ListVideoFullQuery = {
-  listVideos:  {
+  listVideos?:  {
     __typename: "ModelVideoConnection",
     items:  Array< {
       __typename: "Video",
@@ -321,9 +360,9 @@ export type ListVideoFullQuery = {
       lengthSeconds: number,
       published: string,
       path: string,
-      season: number | null,
-      episode: number | null,
-      score: number | null,
+      season?: number | null,
+      episode?: number | null,
+      score?: number | null,
       createdAt: string,
       updatedAt: string,
       media:  {
@@ -333,8 +372,8 @@ export type ListVideoFullQuery = {
         image: string,
         type: MEDIA_TYPE,
       },
-    } | null > | null,
-    nextToken: string | null,
+    } | null >,
+    nextToken?: string | null,
   } | null,
 };
 
@@ -344,7 +383,7 @@ export type CreateMediaMutationVariables = {
 };
 
 export type CreateMediaMutation = {
-  createMedia:  {
+  createMedia?:  {
     __typename: "Media",
     id: string,
     type: MEDIA_TYPE,
@@ -352,9 +391,9 @@ export type CreateMediaMutation = {
     image: string,
     createdAt: string,
     updatedAt: string,
-    videos:  {
+    videos?:  {
       __typename: "ModelVideoConnection",
-      nextToken: string | null,
+      nextToken?: string | null,
     } | null,
   } | null,
 };
@@ -365,7 +404,7 @@ export type UpdateMediaMutationVariables = {
 };
 
 export type UpdateMediaMutation = {
-  updateMedia:  {
+  updateMedia?:  {
     __typename: "Media",
     id: string,
     type: MEDIA_TYPE,
@@ -373,9 +412,9 @@ export type UpdateMediaMutation = {
     image: string,
     createdAt: string,
     updatedAt: string,
-    videos:  {
+    videos?:  {
       __typename: "ModelVideoConnection",
-      nextToken: string | null,
+      nextToken?: string | null,
     } | null,
   } | null,
 };
@@ -386,7 +425,7 @@ export type DeleteMediaMutationVariables = {
 };
 
 export type DeleteMediaMutation = {
-  deleteMedia:  {
+  deleteMedia?:  {
     __typename: "Media",
     id: string,
     type: MEDIA_TYPE,
@@ -394,9 +433,9 @@ export type DeleteMediaMutation = {
     image: string,
     createdAt: string,
     updatedAt: string,
-    videos:  {
+    videos?:  {
       __typename: "ModelVideoConnection",
-      nextToken: string | null,
+      nextToken?: string | null,
     } | null,
   } | null,
 };
@@ -407,7 +446,7 @@ export type CreateVideoMutationVariables = {
 };
 
 export type CreateVideoMutation = {
-  createVideo:  {
+  createVideo?:  {
     __typename: "Video",
     id: string,
     type: VIDEO_TYPE,
@@ -415,9 +454,9 @@ export type CreateVideoMutation = {
     lengthSeconds: number,
     published: string,
     path: string,
-    season: number | null,
-    episode: number | null,
-    score: number | null,
+    season?: number | null,
+    episode?: number | null,
+    score?: number | null,
     createdAt: string,
     updatedAt: string,
     media:  {
@@ -438,7 +477,7 @@ export type UpdateVideoMutationVariables = {
 };
 
 export type UpdateVideoMutation = {
-  updateVideo:  {
+  updateVideo?:  {
     __typename: "Video",
     id: string,
     type: VIDEO_TYPE,
@@ -446,9 +485,9 @@ export type UpdateVideoMutation = {
     lengthSeconds: number,
     published: string,
     path: string,
-    season: number | null,
-    episode: number | null,
-    score: number | null,
+    season?: number | null,
+    episode?: number | null,
+    score?: number | null,
     createdAt: string,
     updatedAt: string,
     media:  {
@@ -469,7 +508,7 @@ export type DeleteVideoMutationVariables = {
 };
 
 export type DeleteVideoMutation = {
-  deleteVideo:  {
+  deleteVideo?:  {
     __typename: "Video",
     id: string,
     type: VIDEO_TYPE,
@@ -477,9 +516,9 @@ export type DeleteVideoMutation = {
     lengthSeconds: number,
     published: string,
     path: string,
-    season: number | null,
-    episode: number | null,
-    score: number | null,
+    season?: number | null,
+    episode?: number | null,
+    score?: number | null,
     createdAt: string,
     updatedAt: string,
     media:  {
@@ -494,6 +533,26 @@ export type DeleteVideoMutation = {
   } | null,
 };
 
+export type GetMediaQueryVariables = {
+  id: string,
+};
+
+export type GetMediaQuery = {
+  getMedia?:  {
+    __typename: "Media",
+    id: string,
+    type: MEDIA_TYPE,
+    name: string,
+    image: string,
+    createdAt: string,
+    updatedAt: string,
+    videos?:  {
+      __typename: "ModelVideoConnection",
+      nextToken?: string | null,
+    } | null,
+  } | null,
+};
+
 export type ListMediasQueryVariables = {
   filter?: ModelMediaFilterInput | null,
   limit?: number | null,
@@ -501,7 +560,7 @@ export type ListMediasQueryVariables = {
 };
 
 export type ListMediasQuery = {
-  listMedias:  {
+  listMedias?:  {
     __typename: "ModelMediaConnection",
     items:  Array< {
       __typename: "Media",
@@ -511,28 +570,8 @@ export type ListMediasQuery = {
       image: string,
       createdAt: string,
       updatedAt: string,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
-export type GetMediaQueryVariables = {
-  id: string,
-};
-
-export type GetMediaQuery = {
-  getMedia:  {
-    __typename: "Media",
-    id: string,
-    type: MEDIA_TYPE,
-    name: string,
-    image: string,
-    createdAt: string,
-    updatedAt: string,
-    videos:  {
-      __typename: "ModelVideoConnection",
-      nextToken: string | null,
-    } | null,
+    } | null >,
+    nextToken?: string | null,
   } | null,
 };
 
@@ -545,7 +584,7 @@ export type MediaByMediaTypeQueryVariables = {
 };
 
 export type MediaByMediaTypeQuery = {
-  mediaByMediaType:  {
+  mediaByMediaType?:  {
     __typename: "ModelMediaConnection",
     items:  Array< {
       __typename: "Media",
@@ -555,8 +594,8 @@ export type MediaByMediaTypeQuery = {
       image: string,
       createdAt: string,
       updatedAt: string,
-    } | null > | null,
-    nextToken: string | null,
+    } | null >,
+    nextToken?: string | null,
   } | null,
 };
 
@@ -565,7 +604,7 @@ export type GetVideoQueryVariables = {
 };
 
 export type GetVideoQuery = {
-  getVideo:  {
+  getVideo?:  {
     __typename: "Video",
     id: string,
     type: VIDEO_TYPE,
@@ -573,9 +612,9 @@ export type GetVideoQuery = {
     lengthSeconds: number,
     published: string,
     path: string,
-    season: number | null,
-    episode: number | null,
-    score: number | null,
+    season?: number | null,
+    episode?: number | null,
+    score?: number | null,
     createdAt: string,
     updatedAt: string,
     media:  {
@@ -597,7 +636,7 @@ export type ListVideosQueryVariables = {
 };
 
 export type ListVideosQuery = {
-  listVideos:  {
+  listVideos?:  {
     __typename: "ModelVideoConnection",
     items:  Array< {
       __typename: "Video",
@@ -607,13 +646,13 @@ export type ListVideosQuery = {
       lengthSeconds: number,
       published: string,
       path: string,
-      season: number | null,
-      episode: number | null,
-      score: number | null,
+      season?: number | null,
+      episode?: number | null,
+      score?: number | null,
       createdAt: string,
       updatedAt: string,
-    } | null > | null,
-    nextToken: string | null,
+    } | null >,
+    nextToken?: string | null,
   } | null,
 };
 
@@ -626,7 +665,7 @@ export type VideoByVideoTypeQueryVariables = {
 };
 
 export type VideoByVideoTypeQuery = {
-  videoByVideoType:  {
+  videoByVideoType?:  {
     __typename: "ModelVideoConnection",
     items:  Array< {
       __typename: "Video",
@@ -636,18 +675,18 @@ export type VideoByVideoTypeQuery = {
       lengthSeconds: number,
       published: string,
       path: string,
-      season: number | null,
-      episode: number | null,
-      score: number | null,
+      season?: number | null,
+      episode?: number | null,
+      score?: number | null,
       createdAt: string,
       updatedAt: string,
-    } | null > | null,
-    nextToken: string | null,
+    } | null >,
+    nextToken?: string | null,
   } | null,
 };
 
 export type OnCreateMediaSubscription = {
-  onCreateMedia:  {
+  onCreateMedia?:  {
     __typename: "Media",
     id: string,
     type: MEDIA_TYPE,
@@ -655,15 +694,15 @@ export type OnCreateMediaSubscription = {
     image: string,
     createdAt: string,
     updatedAt: string,
-    videos:  {
+    videos?:  {
       __typename: "ModelVideoConnection",
-      nextToken: string | null,
+      nextToken?: string | null,
     } | null,
   } | null,
 };
 
 export type OnUpdateMediaSubscription = {
-  onUpdateMedia:  {
+  onUpdateMedia?:  {
     __typename: "Media",
     id: string,
     type: MEDIA_TYPE,
@@ -671,15 +710,15 @@ export type OnUpdateMediaSubscription = {
     image: string,
     createdAt: string,
     updatedAt: string,
-    videos:  {
+    videos?:  {
       __typename: "ModelVideoConnection",
-      nextToken: string | null,
+      nextToken?: string | null,
     } | null,
   } | null,
 };
 
 export type OnDeleteMediaSubscription = {
-  onDeleteMedia:  {
+  onDeleteMedia?:  {
     __typename: "Media",
     id: string,
     type: MEDIA_TYPE,
@@ -687,15 +726,15 @@ export type OnDeleteMediaSubscription = {
     image: string,
     createdAt: string,
     updatedAt: string,
-    videos:  {
+    videos?:  {
       __typename: "ModelVideoConnection",
-      nextToken: string | null,
+      nextToken?: string | null,
     } | null,
   } | null,
 };
 
 export type OnCreateVideoSubscription = {
-  onCreateVideo:  {
+  onCreateVideo?:  {
     __typename: "Video",
     id: string,
     type: VIDEO_TYPE,
@@ -703,9 +742,9 @@ export type OnCreateVideoSubscription = {
     lengthSeconds: number,
     published: string,
     path: string,
-    season: number | null,
-    episode: number | null,
-    score: number | null,
+    season?: number | null,
+    episode?: number | null,
+    score?: number | null,
     createdAt: string,
     updatedAt: string,
     media:  {
@@ -721,7 +760,7 @@ export type OnCreateVideoSubscription = {
 };
 
 export type OnUpdateVideoSubscription = {
-  onUpdateVideo:  {
+  onUpdateVideo?:  {
     __typename: "Video",
     id: string,
     type: VIDEO_TYPE,
@@ -729,9 +768,9 @@ export type OnUpdateVideoSubscription = {
     lengthSeconds: number,
     published: string,
     path: string,
-    season: number | null,
-    episode: number | null,
-    score: number | null,
+    season?: number | null,
+    episode?: number | null,
+    score?: number | null,
     createdAt: string,
     updatedAt: string,
     media:  {
@@ -747,7 +786,7 @@ export type OnUpdateVideoSubscription = {
 };
 
 export type OnDeleteVideoSubscription = {
-  onDeleteVideo:  {
+  onDeleteVideo?:  {
     __typename: "Video",
     id: string,
     type: VIDEO_TYPE,
@@ -755,9 +794,9 @@ export type OnDeleteVideoSubscription = {
     lengthSeconds: number,
     published: string,
     path: string,
-    season: number | null,
-    episode: number | null,
-    score: number | null,
+    season?: number | null,
+    episode?: number | null,
+    score?: number | null,
     createdAt: string,
     updatedAt: string,
     media:  {

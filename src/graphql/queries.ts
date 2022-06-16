@@ -2,6 +2,21 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getMedia = /* GraphQL */ `
+  query GetMedia($id: ID!) {
+    getMedia(id: $id) {
+      id
+      type
+      name
+      image
+      createdAt
+      updatedAt
+      videos {
+        nextToken
+      }
+    }
+  }
+`;
 export const listMedias = /* GraphQL */ `
   query ListMedias(
     $filter: ModelMediaFilterInput
@@ -18,21 +33,6 @@ export const listMedias = /* GraphQL */ `
         updatedAt
       }
       nextToken
-    }
-  }
-`;
-export const getMedia = /* GraphQL */ `
-  query GetMedia($id: ID!) {
-    getMedia(id: $id) {
-      id
-      type
-      name
-      image
-      createdAt
-      updatedAt
-      videos {
-        nextToken
-      }
     }
   }
 `;
