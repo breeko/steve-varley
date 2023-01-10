@@ -13,13 +13,20 @@
     },
     "categories": {
       "auth": {
-        "stevevarley7d97c051": {}
+        "stevevarley7d97c051": {},
+        "userPoolGroups": {}
       },
       "hosting": {
         "amplifyhosting": {
           "appId": "da1n3k08i9i72",
           "type": "cicd"
         }
+      },
+      "api": {
+        "stevevarley": {}
+      },
+      "storage": {
+        "images": {}
       }
     }
   }
