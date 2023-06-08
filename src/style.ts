@@ -1,4 +1,4 @@
-import { Image, Row } from "antd"
+import { Row } from "antd"
 import Title from "antd/lib/typography/Title"
 import styled from "styled-components"
 import Colors from "./utils/colors"
