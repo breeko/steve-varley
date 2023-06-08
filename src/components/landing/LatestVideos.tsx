@@ -14,13 +14,13 @@ const LatestVideos: React.FunctionComponent = () => {
   }, [])
 
 
-  return(
-    <div style={{alignItems: "center", display: "flex", flexDirection: "column"}}>
+  return (
+    <div style={{ alignItems: "center", display: "flex", flexDirection: "column", padding: "10px" }}>
       <Space direction="vertical" >
         <DottedTitle className="blink">Latest Videos</DottedTitle>
         {videos.map(v => {
           let prefix = ""
-          switch(v.media.type) {
+          switch (v.media.type) {
             case MEDIA_TYPE.TV:
               prefix = `/tv`
               break
@@ -35,11 +35,11 @@ const LatestVideos: React.FunctionComponent = () => {
           return (
             <LatestVideosRow key={v.path} gutter={[16, 16]}>
               <Col span={24}>
-                <Link href={{ pathname, query: { v: v.id } }}>
-                  <a style={{color: "inherit"}}>{v.name} ({v.published})</a>
+                <Link style={{ color: "inherit" }} href={{ pathname, query: { v: v.id } }}>
+                  {v.name} ({v.published})
                 </Link>
               </Col>
-            </LatestVideosRow>  
+            </LatestVideosRow>
           )
         })}
 

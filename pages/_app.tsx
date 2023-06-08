@@ -1,14 +1,15 @@
 import React from "react"
 import Head from 'next/head'
 import type { AppProps } from 'next/app'
-import 'antd/dist/antd.css'
+// import 'antd/dist/antd.css'
 import '../styles/styles.scss'
 // import "antd/dist/antd.dark.min.css"
-import Amplify, { Auth } from 'aws-amplify';
+import { Amplify, Auth } from 'aws-amplify';
 import awsconfig from '../src/aws-exports';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  Amplify.configure({...awsconfig, aws_appsync_authenticationType: "API_KEY", })
+
+  Amplify.configure({ ...awsconfig, aws_appsync_authenticationType: "API_KEY", })
   Auth.configure(awsconfig)
   return <>
     <Head>

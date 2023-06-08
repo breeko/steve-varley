@@ -10,49 +10,41 @@ const AppHeader: React.FunctionComponent = () => {
 
   const showTitle = router.pathname !== "/"
 
-  return(
+  return (
     <StyledHeader showshadow={showTitle ? "true" : "false"}>
       <Row>
-        <Col xs={6} sm={6} md={0} style={{textAlign: "left"}}>
-          { showTitle && <StyledHeaderIcons direction="horizontal" style={{float: "left"}} >
+        <Col xs={6} sm={6} md={0} style={{ textAlign: "left" }}>
+          {showTitle && <StyledHeaderIcons direction="horizontal" style={{ float: "left" }} >
             <Link href="/">
-              <a>
-                <BiHome size="30px"/>
-              </a>
+              <BiHome size="30px" />
             </Link>
-          </StyledHeaderIcons> }
+          </StyledHeaderIcons>}
         </Col>
         <Col xs={0} sm={0} md={22}>
-          { showTitle && 
+          {showTitle &&
             <StyledHeaderTitle center={false} color="light">
               <Link href="/">
-                <a>Steve Varley Show</a>
+                Steve Varley Show
               </Link>
             </StyledHeaderTitle>
-            }
-          </Col>
+          }
+        </Col>
         <Col xs={18} md={2}>
-          <StyledHeaderIcons direction="horizontal" style={{float: "right"}}>
+          <StyledHeaderIcons direction="horizontal" style={{ float: "right" }}>
             <Link href="/tv">
-              <a>
-                <BiTv size="30px"/>
-              </a>
+              <BiTv size="30px" />
             </Link>
             <Link href="/movies">
-              <a>
-                <BiMovie size="30px"/>
-              </a>
+              <BiMovie size="30px" />
             </Link>
             <Link href="/interviews">
-              <a>
-                <BiMicrophone size="30px"/>
-              </a>
+              <BiMicrophone size="30px" />
             </Link>
           </StyledHeaderIcons>
-        </Col>        
+        </Col>
       </Row>
       <Col>
-      
+
       </Col>
     </StyledHeader>
   )

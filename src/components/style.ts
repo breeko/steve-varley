@@ -18,7 +18,7 @@ export const StyledContent = styled(Content)`
   margin: 10px;
 `
 
-export const StyledHeader = styled(Header)<{showshadow: "true" | "false"}>`
+export const StyledHeader = styled(Header) <{ showshadow: "true" | "false" }>`
   padding-left: 10px !important;
   padding-right: 10px !important;
   width: 100vw !important;
@@ -30,7 +30,7 @@ export const StyledHeader = styled(Header)<{showshadow: "true" | "false"}>`
   text-align: center;
   background-color: ${Colors.red} !important;
   color: ${Colors.white} !important;
-  box-shadow: ${({showshadow}) => showshadow === "true" ? "0px 0px 3px 3px rgba(41,41,41,0.15)" : "inherit"};
+  box-shadow: ${({ showshadow }) => showshadow === "true" ? "0px 0px 3px 3px rgba(41,41,41,0.15)" : "inherit"};
   > a {
     color: ${Colors.white} !important;
     align-items: center;
@@ -40,14 +40,14 @@ export const StyledHeader = styled(Header)<{showshadow: "true" | "false"}>`
   }
 `
 
-export const StyledHeaderTitle = styled.div<{center?: boolean, color: "light" | "dark"}>`
+export const StyledHeaderTitle = styled.div<{ center?: boolean, color: "light" | "dark" }>`
   margin: 0px;
-  text-align: ${({center}) => center ? "center" : "left"};
+  text-align: ${({ center }) => center ? "center" : "left"};
   font-size: 40px;
   font-family: Ultra, serif;
-  color: ${({color}) => color === "light" ? Colors.white : "default" };
+  color: ${({ color }) => color === "light" ? Colors.white : "default"};
   > a {
-    color: ${({color}) => color === "light" ? Colors.white : "default" };
+    color: ${({ color }) => color === "light" ? Colors.white : "default"};
   }
 `
 
@@ -66,6 +66,7 @@ export const StyledLayout = styled(Layout)`
   min-height: 100vh !important;
   background-color: white;
   overflow: hidden;
+  margin: 0px !important;
   /* background-image: url("45-degree-fabric-dark.png") */
   /* background-image: -webkit-linear-gradient(30deg, #013A6B 50%, #004E95 50%) */
 `

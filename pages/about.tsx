@@ -24,7 +24,7 @@ const AboutPage: React.FunctionComponent = () => {
         />
         <p>
           <Link href="/">
-            <a>Go home</a>
+            Go home
           </Link>
         </p>
       </SplashContainer>

@@ -1,24 +1,35 @@
 import Document, { Html, Title, Head, Main, NextScript } from 'next/document';
 // Import styled components ServerStyleSheet
 import { ServerStyleSheet } from 'styled-components';
-import {MY_SEO} from "../config"
+import { MY_SEO } from "../config"
 
 export default class MyDocument extends Document {
-  static getInitialProps({ renderPage }) {
-    // Step 1: Create an instance of ServerStyleSheet
-    const sheet = new ServerStyleSheet();
+  static async getInitialProps(ctx) {
+    const sheet = new ServerStyleSheet()
+    const originalRenderPage = ctx.renderPage
 
-    // Step 2: Retrieve styles from components in the page
-    const page = renderPage((App) => (props) =>
-      sheet.collectStyles(<App {...props} />),
-    );
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />),
+        })
 
-    // Step 3: Extract the styles as <style> tags
-    const styleTags = sheet.getStyleElement();
-
-    // Step 4: Pass styleTags as a prop
-    return { ...page, styleTags };
+      const initialProps = await Document.getInitialProps(ctx)
+      return {
+        ...initialProps,
+        styles: (
+          <>
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </>
+        ),
+      }
+    } finally {
+      sheet.seal()
+    }
   }
+
 
   render() {
     return (
@@ -26,16 +37,16 @@ export default class MyDocument extends Document {
         <Head title="Steve Varley Show">
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-D4669286HK"></script>
           <script
-              dangerouslySetInnerHTML={{
-                __html: `
+            dangerouslySetInnerHTML={{
+              __html: `
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
                 
                   gtag('config', 'G-D4669286HK');
                   `,
-              }}
-            />
+            }}
+          />
           <link rel="stylesheet" href="/static/google-fonts.css" />
           <meta
             key="description"
@@ -76,7 +87,7 @@ export default class MyDocument extends Document {
           <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png" />
           <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png" />
           <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png" />
-          <link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png" />
+          <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png" />
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
           <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png" />
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
@@ -86,8 +97,8 @@ export default class MyDocument extends Document {
           <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png" />
           <meta name="theme-color" content="#ffffff" />
           {this.props?.styleTags}
-          </Head>
-        <body>
+        </Head>
+        <body style={{ margin: 0 }}>
           <Main />
           <NextScript />
         </body>

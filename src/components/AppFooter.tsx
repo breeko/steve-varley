@@ -6,18 +6,14 @@ import Colors from "../utils/colors"
 import { StyledFooter } from "./style"
 
 const AppFooter = () => {
-  return(
+  return (
     <StyledFooter>
       <Space direction="horizontal">
         <Link href="https://www.github.com/breeko/steve-varley">
-          <a>
-            <FiGithub color={Colors.white} size="20px"/>
-          </a>
+          <FiGithub color={Colors.white} size="20px" />
         </Link>
         <Link href="mailto:stevevarleyshow@gmail.com">
-          <a>
-            <FiMail color={Colors.white} size="20px"/>
-          </a>
+          <FiMail color={Colors.white} size="20px" />
         </Link>
       </Space>
     </StyledFooter>

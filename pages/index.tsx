@@ -13,15 +13,15 @@ import Colors from '../src/utils/colors'
 import { MediaLinks } from '../src/utils/mediaLinks'
 
 const IndexPage: React.FunctionComponent = () => {
-  return(
+  return (
     <AppLayout >
-      <Row style={{backgroundColor: Colors.red}}>
+      <Row style={{ backgroundColor: Colors.red }}>
         <Col xs={0} sm={24}>
           <SplashContainer padded={true} size="large">
             <Space direction="horizontal">
-              <RoundImage src="/steve-varley-animated.jpg" alt="Steve Varley"></RoundImage>
+              <RoundImage src="/steve-varley-animated.png" alt="Steve Varley"></RoundImage>
               <StyledHeaderTitle center={false} color="light">
-                Steve<br/>Varley<br/>Show
+                Steve<br />Varley<br />Show
               </StyledHeaderTitle>
             </Space>
           </SplashContainer>
@@ -29,7 +29,7 @@ const IndexPage: React.FunctionComponent = () => {
         <Col xs={24} sm={0}>
           <SplashContainer padded={false} size="large">
             <Space direction="horizontal">
-              <RoundImage src="/steve-varley-animated.jpg" alt="Steve Varley"></RoundImage>
+              <RoundImage src="/steve-varley-animated.png" alt="Steve Varley"></RoundImage>
             </Space>
           </SplashContainer>
         </Col>
@@ -43,42 +43,35 @@ const IndexPage: React.FunctionComponent = () => {
       <Row>
         <Col xs={24}>
           <MainTagLine>
-            <Space direction="vertical" style={{width: "100%"}}>
+            <Space direction="vertical" style={{ width: "100%" }}>
               <span>Honest, genuine, funny&nbsp;
-              <TextLoop springConfig={{ stiffness: 180, damping: 8 }}>
-                <span>television reviews</span>
-                <span>movie reviews</span>
-                <span>celebrity interviews</span>
-              </TextLoop>
+                <TextLoop springConfig={{ stiffness: 180, damping: 8 }}>
+                  <span>television reviews</span>
+                  <span>movie reviews</span>
+                  <span>celebrity interviews</span>
+                </TextLoop>
               </span>
               <Space direction="horizontal">
                 <Link href={MediaLinks.youtube}>
-                  <a>
-                    <MediaLink>
-                      <FiYoutube size={40} color={Colors.black}/>
-                    </MediaLink>
-                  </a>
+
+                  <MediaLink>
+                    <FiYoutube size={40} color={Colors.black} />
+                  </MediaLink>
                 </Link>
                 <Link href={MediaLinks.twitter}>
-                  <a>
-                    <MediaLink>
-                      <FiTwitter size={40} color={Colors.black}/>
-                    </MediaLink>
-                  </a>
+                  <MediaLink>
+                    <FiTwitter size={40} color={Colors.black} />
+                  </MediaLink>
                 </Link>
                 <Link href={MediaLinks.instagram}>
-                  <a>
-                    <MediaLink>
-                      <FiInstagram size={40} color={Colors.black}/>
-                    </MediaLink>
-                  </a>
+                  <MediaLink>
+                    <FiInstagram size={40} color={Colors.black} />
+                  </MediaLink>
                 </Link>
                 <Link href={MediaLinks.imdb}>
-                  <a>
-                    <MediaLink>
-                      <BiCameraMovie size={40} color={Colors.black}/>
-                    </MediaLink>
-                  </a>
+                  <MediaLink>
+                    <BiCameraMovie size={40} color={Colors.black} />
+                  </MediaLink>
                 </Link>
               </Space>
             </Space>
@@ -88,38 +81,32 @@ const IndexPage: React.FunctionComponent = () => {
       <IconRow align="middle" justify="space-around">
         <Col xs={24} sm={8}>
           <Link href="/tv">
-            <a>
-              <Space direction="vertical">
-                <BiTv size={60} color={Colors.white} />
-                <MainLink white >
-                  <div className="glitch" data-text="Television">Television</div>
-                </MainLink>
-              </Space>
-            </a>
+            <Space direction="vertical">
+              <BiTv size={60} color={Colors.white} />
+              <MainLink white >
+                <div className="glitch" data-text="Television">Television</div>
+              </MainLink>
+            </Space>
           </Link>
         </Col>
         <Col xs={24} sm={8}>
           <Link href="/movies">
-            <a>
-              <Space direction="vertical">
-                <BiMovie size={60} color={Colors.white}/>
-                <MainLink white>
-                  <div className="logo-1">Movies</div>
-                </MainLink>
-              </Space>
-            </a>
+            <Space direction="vertical">
+              <BiMovie size={60} color={Colors.white} />
+              <MainLink white>
+                <div className="logo-1">Movies</div>
+              </MainLink>
+            </Space>
           </Link>
         </Col>
         <Col xs={24} sm={8}>
           <Link href="/interviews">
-            <a >
-              <Space direction="vertical">
-                <BiMicrophone size={60} color={Colors.white}/>
-                <MainLink white>
-                  <div className="flash">Interviews</div>
-                </MainLink>
-              </Space>
-            </a>
+            <Space direction="vertical">
+              <BiMicrophone size={60} color={Colors.white} />
+              <MainLink white>
+                <div className="flash">Interviews</div>
+              </MainLink>
+            </Space>
           </Link>
         </Col>
       </IconRow>

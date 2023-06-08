@@ -6,7 +6,7 @@ import AddVideoForm from "./forms/AddVideoForm"
 
 const { Option } = Select
 
-export interface EditProps {id: string, type: AddType}
+export interface EditProps { id: string, type: AddType }
 
 interface AddModalProps {
   onClose: () => void
@@ -20,23 +20,23 @@ const AddModal: React.FunctionComponent<AddModalProps> = ({ onClose, edit }) => 
   let formElem: JSX.Element = <div></div>
   switch (addType) {
     case "media":
-      formElem = <AddMediaForm onComplete={onClose} id={edit?.id}/>
+      formElem = <AddMediaForm onComplete={onClose} id={edit?.id} />
       break
     case "video":
-      formElem = <AddVideoForm onComplete={onClose} id={edit?.id}/>
+      formElem = <AddVideoForm onComplete={onClose} id={edit?.id} />
       break
   }
 
-  return(
-    <Modal visible={true} onCancel={onClose} title={edit ? "Edit" : "Add"} footer={null} keyboard={false}>
-      { edit === undefined &&
+  return (
+    <Modal open={true} onCancel={onClose} title={edit ? "Edit" : "Add"} footer={null} keyboard={false}>
+      {edit === undefined &&
         <React.Fragment>
-          <Select value={addType} onChange={setAddType} style={{width: "100%"}} >
+          <Select value={addType} onChange={setAddType} style={{ width: "100%" }} >
             <Option value="media">Media</Option>
             <Option value="video">Video</Option>
           </Select>
-        <Divider />
-      </React.Fragment>}
+          <Divider />
+        </React.Fragment>}
       {formElem}
     </Modal>
   )

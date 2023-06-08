@@ -12,7 +12,7 @@ type Props = {
 
 const AppLayout: React.FunctionComponent<Props> = ({ children, sider, isLoading }) => (
   <StyledLayout>
-    <AppHeader/>
+    <AppHeader />
     <StyledInnerLayout>
       {sider}
       <Spin spinning={isLoading === true} size="large">
